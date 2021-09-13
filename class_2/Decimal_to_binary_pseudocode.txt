@@ -1,0 +1,9 @@
+Converting Decimal to Binary:
+
+    1) Get number from the user
+    2) create a list of even numbers incrementing by n*2
+    3) reverse the list
+    4) for every item in the list:
+    5) check if the users number is larger than the first list number
+    6) if so subtract it and denote a 1 for a digit of Binary
+    7) if not denote a 0 for a digit of binary

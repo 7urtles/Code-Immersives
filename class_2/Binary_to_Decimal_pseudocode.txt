@@ -1,0 +1,9 @@
+Binary Conversion Sudo Code Algorithim:
+
+    1. Get binary input from user
+    2. split the input into a list
+    3. reverse the list
+    4. iterate the list:
+        1. if the value is a 1, square it by it's position in the list
+            1) add that number to a total
+        

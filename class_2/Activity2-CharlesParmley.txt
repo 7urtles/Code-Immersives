@@ -1,0 +1,72 @@
+Binary to Decimal Conversions:
+
+    1) 00000000
+    -Decimal: 0
+
+    2) 10010100
+    -Decimal: 148
+
+    3) 01101111
+    -Decimal: 111
+
+    4) 10011001
+    -Decimal: 153
+
+    5) 11111111
+    -Decimal: 255
+
+    6) 10110001
+    -Decimal: 177
+
+    7) 11100101
+    -Decimal: 229
+
+    8) 10101010
+    -Decimal: 170
+
+    9) 11010101
+    -Decimal: 213
+
+    10) 11100001
+    -Decimal: 
+
+    11) 10010110
+    -Decimal: 
+
+    12) 10101110100
+    -Decimal: 
+
+    13) 11111101011001
+    -Decimal: 
+
+    14) 1101010010101110
+    -Decimal: 
+
+
+Decimal to Binary Conversions:
+    1) 255
+    -Binary: 
+
+    2) 90
+    -Binary: 
+    
+    3) 47
+    -Binary: 
+    
+    4) 1024
+    -Binary: 
+    
+    5) 674
+    -Binary: 
+    
+    6) 1000
+    -Binary: 
+    
+    7) 2048
+    -Binary: 
+    
+    8) 1776
+    -Binary: 
+    
+    9) 2020
+    -Binary: 
