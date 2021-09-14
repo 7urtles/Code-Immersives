@@ -1,0 +1,27 @@
+They type() returns an objects type.
+Usage:
+------
+new_item = "string"
+
+type(new_item) will return <object 'string'>
+
+
+Using Slices:
+---------------
+Slices reference portions of a list using index positions
+
+first argument-> Starting Point 
+Second Argument-> Ending Point
+Third Argument-> Step Count
+
+example: list[0:10:2]
+
+The above example will print the first item through the tenth
+item, in steps of 2.
+
+In order to slice in a reverse direction usage is as such:
+
+example: list[10:0:-2]
+
+The above example will print the last item through the first
+item, in reverse steps of 2.
