@@ -7,14 +7,14 @@ c. Get the 4th element from the front, and the 4th element from the end.
 
 d. find the length of a tuple.
 '''
-# Answer a
+# Answer A
 some_tuple = ('string', 5)
 
-# Answer b
+# Answer B
 some_tuple = ('these', 'are', 'multiple', 'values', 'in', 'a', 'tuple')
 print(some_tuple[-1])
 
-# Answer c
+# Answer C
 some_tuple = (1, 2, 3, 4, 5, 6, 7, 8)
 print('4th element in the tuple: ', some_tuple[3], '\n4th element from the end:', some_tuple[-4] )
 
