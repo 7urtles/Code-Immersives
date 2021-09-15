@@ -15,12 +15,6 @@ Methods take input, process the input, give an output
     #       Returns: a True or False boolean
 
 
-    # any() 
-    # Returns True if any object in tuple is true.
-    #       Usage: any(some_tuple)
-    #       Returns: a True or False boolean
-
-
     # len() 
     # Returns the length of the tuple.
     #       Usage: len(some_tuple)
@@ -54,7 +48,13 @@ Methods take input, process the input, give an output
 
     # sum() 
     # Returns the largest value in the tuple.
-    #       Note2: since the operation is an addition operation,
+    #       Note: since the operation is an addition operation,
     #           tuple values should be of the same type.
     #       Usage: sum(some_tuple)
     #       Returns: an object from the tuple
+
+    # tuple() 
+    # This method is a constructor, it builds a tuple from given values.
+    #       Usage: tuple('these', 'are', 'some', 'values')
+    #       Returns: a tuple object
+
