@@ -11,7 +11,7 @@ max_number_cars = 15        # Max number of cars on the road at one time        
 spawn_rate = 5              # Car span rate [1-10]                              Default:   5
 road_size = 20              # The lenght of the road [1-40] Recommended         Default:  20
 traffic_light_timer = 25    # Starting seed for initial traffic light timer     Default:  25
-light_length = 20           # How long the light takes to turn colors           Default:  20
+light_length = 30           # How long the light takes to turn colors           Default:  20
 #-----------------------------------------------------------------------------------------------------
 
 
@@ -123,7 +123,7 @@ class Traffic_Light_Manager():
             traffic_light.color = 'red'
         # If the time reaches its negative value, make it green again and reset the timer
         if traffic_light.timer['time'] < -light_length:
-            traffic_light.timer['time'] = light_length
+            traffic_light.timer['time'] = light_length + random.randint(-20,20)
             traffic_light.timer['on'] = True
             traffic_light.color = "green"
 
