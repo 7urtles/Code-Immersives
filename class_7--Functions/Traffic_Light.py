@@ -7,7 +7,7 @@ import random
 
 #---------[WORLD SETTINGS]----------------------------------------------------------------------------
 run_speed = .13             # Going under .04 is unstable [.04-.3]              Default: .15
-road_size = 15              # The lenght of the road [1-40] Recommended         Default:  20
+road_size = 25              # The lenght of the road [1-40] Recommended         Default:  20
 intersection_width = 3      # Gap between streen lights [0-10]                  Default:   4
 max_number_cars = 15        # Max number of cars on the road at one time        Default:  15
 spawn_rate = 5              # Car span rate [1-10]                              Default:   5
@@ -38,7 +38,6 @@ class World_Handler():
             northbound_traffic_light = Traffic_Light(self.traffic_light_timer)
             southound_traffic_light = Traffic_Light(self.traffic_light_timer)
         else:
-            self.traffic_light_timer = random.randint(-traffic_light_timer,traffic_light_timer)
             westbound_traffic_light = Traffic_Light(random.randint(-self.traffic_light_timer,self.traffic_light_timer))
             eastbound_traffic_light = Traffic_Light(random.randint(-self.traffic_light_timer,self.traffic_light_timer))
             northbound_traffic_light = Traffic_Light(random.randint(-self.traffic_light_timer,self.traffic_light_timer))
@@ -206,9 +205,12 @@ class Car_Manager():
             # Otherwise stop
             else:
                 list_of_cars[car].driving = False
+            # Keep driving if not close to the intersection, or already through it
             if list_of_cars[car].distance_from_light > intersection_width or list_of_cars[car].distance_from_light < intersection_width:
                 list_of_cars[car].driving = True
+
             try:
+                # If there is a car in the space ahead stop and wait until it has moved to drive again
                 if traffic_positions[car].distance_from_light - traffic_positions[car-1].distance_from_light <= 1:
                     # print(list_of_cars[car])
                     list_of_cars[car].driving = False
@@ -238,8 +240,6 @@ class Car_Manager():
         list_of_car_ids = []
         for car in list_of_cars:
             list_of_car_ids.append(list_of_cars[car].id)
-        # print(list_of_car_ids)
-        # print(list_of_cars)
 
         # Look up car whos iD is in the list, and check it's movement.
         for id in list_of_car_ids:
