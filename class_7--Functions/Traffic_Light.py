@@ -6,7 +6,7 @@ import random
 
 
 #---------[WORLD SETTINGS]----------------------------------------------------------------------------
-run_speed = .13             # Going under .04 is unstable [.04-.3]              Default: .15
+run_speed = .03             # Going under .03 is unstable [.01-.3]              Default: .15
 road_size = 25              # The lenght of the road [1-40] Recommended         Default:  20
 intersection_width = 6      # Gap between streen lights [0-10]                  Default:   4
 max_number_cars = 15        # Max number of cars in a lane at one time          Default:  15
