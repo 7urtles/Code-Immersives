@@ -10,16 +10,16 @@ run_speed = .13             # [.04-.3] Going under .04 is unstable              
 max_number_cars = 15        # Max number of cars on the road at one time        Default:  15
 spawn_rate = 5              # Car span rate [1-10]                              Default:   5
 road_size = 20              # The lenght of the road [1-40] Recommended         Default:  20
-traffic_light_timer = 90    # Starting seed for initial traffic light timer     Default:  25
+traffic_light_timer = 40    # Starting seed for initial traffic light timer     Default:  25
 light_length = 35           # How long the light takes to turn colors           Default:  35
-syncronized_lights = False
+syncronize_lights = True
 #-----------------------------------------------------------------------------------------------------
 
 
 
 # Operates the runtime and road environment
 class World_Handler():
-    def __init__(self,run_speed,max_number_cars,spawn_rate,road_size,traffic_light_timer,syncronized_lights):
+    def __init__(self,run_speed,max_number_cars,spawn_rate,road_size,traffic_light_timer,syncronize_lights):
         # Initialize runtime settings
         self.run_speed = run_speed
         self.max_number_cars = max_number_cars
@@ -27,7 +27,7 @@ class World_Handler():
         self.road_size = road_size 
         self.traffic_light_timer = traffic_light_timer 
         self.light_length = light_length
-        self.syncronized_lights = syncronized_lights
+        self.syncronized_lights = syncronize_lights
 
         # Initialize Traffic Lights
         if self.syncronized_lights == True:
@@ -130,7 +130,7 @@ class Traffic_Light_Manager():
             traffic_light.color = 'red'
         # If the time reaches its negative value, make it green again and reset the timer
         if traffic_light.timer['time'] < -light_length:
-            if syncronized_lights == True:
+            if syncronize_lights == True:
                 traffic_light.timer['time'] = light_length
             else:
                 traffic_light.timer['time'] = light_length + random.randint(-20,20)
@@ -278,6 +278,6 @@ class Lane():
 
 
 
-World_Handler(run_speed,max_number_cars,spawn_rate,road_size,traffic_light_timer,syncronized_lights)
+World_Handler(run_speed,max_number_cars,spawn_rate,road_size,traffic_light_timer,syncronize_lights)
 
 
