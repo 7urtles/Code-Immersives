@@ -9,8 +9,8 @@ import random
 #---------[WORLD SETTINGS]----------------------------------------------------------------------------
 run_speed = .05             # Under .03 can be unstable [.01-.1]                Default:  .1
 number_of_roads = 4         # Supports 1-4 roads two lane roads                 Default:   2
-road_length = 30            # The length of the road [10-70] recommended        Default:  20
-intersection_width = 10     # Gap between streen lights [0-10]                  Default:   4
+road_length = 90            # The length of the road [10-70] recommended        Default:  20
+intersection_width = 50     # Gap between streen lights [0-10]                  Default:   4
 max_number_cars = 35        # Max number of cars in a lane at one time          Default:  15
 spawn_rate = 40             # Car span rate [1-50]                              Default:  40
 light_length = 100          # How long the light takes to turn colors           Default:  35
@@ -329,7 +329,7 @@ class Display_Handler():
         
         # Road 1 upper edge 
         if 'eastbound' == heading or 'northbound' == heading:
-            print(' '+'__' * road_size)
+            print(' '+'__' * road_size + '__')
         # Road 1 Traffic Light
         if 'eastbound' in heading or 'northbound' in heading:
             if traffic_lights[direction].color == 'green':
@@ -339,7 +339,7 @@ class Display_Handler():
        
         # Road 2 upper edge 
         if 'westbound' == heading or 'southbound' == heading:
-                print(' '+'__' * road_size)
+                print(' '+'__' * road_size + '__')
         # Road 2 Traffic Light
         if 'westbound' in heading or 'southbound' in heading:
             if traffic_lights[direction].color == 'green':
