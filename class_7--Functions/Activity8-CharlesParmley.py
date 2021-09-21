@@ -32,8 +32,8 @@ class Traffic_Light_Manager():
             traffic_light.timer['on'] = False
             traffic_light.color = 'red'
         # If the time reaches its negative value, make it green again and reset the timer
-        if traffic_light.timer['time'] < -50:
-            traffic_light.timer['time'] = 50
+        if traffic_light.timer['time'] < -40:
+            traffic_light.timer['time'] = 40
             traffic_light.timer['on'] = True
             traffic_light.color = "green"
 
@@ -49,9 +49,9 @@ class Car():
 
     def __init__(self,id,direction):
         self.id = id
-        self.distance_from_light = 30
+        self.distance_from_light = 20
         if direction == "eastbound":
-            self.distance_from_light = 29
+            self.distance_from_light = 19
         self.waiting = True
         self.driving = False
         self.in_spawn = True
@@ -147,7 +147,7 @@ class Car_Manager():
         # Look up car whos iD is in the list, and check it's movement.
         for id in list_of_car_ids:
             # De-Spawn it if it has traveled a certain distance
-            if list_of_cars[id].distance_from_light <= -30:
+            if list_of_cars[id].distance_from_light <= -20:
                 # print('DELETED CAR: ',list_of_cars[id])
                 list_of_cars.pop(id)
 
@@ -161,10 +161,10 @@ class Lane():
         # print('the',list_of_cars)
         try:
             if heading == 'westbound':
-                for i in range(30, -30, -1):
+                for i in range(20, -20, -1):
                     self.lane_data[i] = False
             if heading == 'eastbound':
-                for i in range(-30, 30):
+                for i in range(-20, 20):
                     self.lane_data[i] = False
         except:
             pass
