@@ -20,7 +20,6 @@ class Traffic_Light():
 
 class Traffic_Light_Manager():
     
-    
     # Set light True/False values according to the 'color' value
     def light_updater(traffic_light):
         traffic_light.timer['time'] -= 1
@@ -34,8 +33,8 @@ class Traffic_Light_Manager():
             traffic_light.timer['on'] = False
             traffic_light.color = 'red'
         # If the time reaches its negative value, make it green again and reset the timer
-        if traffic_light.timer['time'] < -40:
-            traffic_light.timer['time'] = 40
+        if traffic_light.timer['time'] < -30:
+            traffic_light.timer['time'] = 30
             traffic_light.timer['on'] = True
             traffic_light.color = "green"
 
@@ -49,11 +48,11 @@ class Traffic_Light_Manager():
 
 class Car():
 
-    def __init__(self,id,direction):
+    def __init__(self,id,direction,road_position):
         self.id = id
-        self.distance_from_light = 20
+        self.distance_from_light = road_position
         if direction == "eastbound":
-            self.distance_from_light = 19
+            self.distance_from_light -= 1
         self.waiting = True
         self.driving = False
         self.in_spawn = True
@@ -63,15 +62,15 @@ class Car():
 
 class Car_Manager():
     # Makes a new car and gives it a unique id
-    def car_creator(self,list_of_cars, traffic_light, direction):
+    def car_creator(self,list_of_cars, traffic_light, direction, max_number_cars,spawn_rate,road_length):
 
         # Random chance of spawing car
-        x = random.randint(0,3)
-        if x == 1:
+        x = random.randint(spawn_rate,10)
+        if x == spawn_rate:
             # Car_Manager().car_creator(self.traffic[direction], self.traffic_lights[direction])
 
             # If there are 3 or less cars in the lane, and no car in the spawn position
-            if len(list_of_cars) < 10 and traffic_light.spawn_taken == False:
+            if len(list_of_cars) < max_number_cars and traffic_light.spawn_taken == False:
 
                 # Assign the id
                 if list_of_cars != {}:
@@ -82,7 +81,7 @@ class Car_Manager():
                     car_id = 0
 
                 # Construct the car
-                new_car = Car(car_id, direction)
+                new_car = Car(car_id, direction, road_length)
 
                 # Add it to the list of cars
                 list_of_cars[new_car.id] = new_car
@@ -137,7 +136,7 @@ class Car_Manager():
 
 
     # Despawing cars after the leave the map
-    def car_despawner(self,list_of_cars):
+    def car_despawner(self,list_of_cars, road_length):
 
         # Build a list of existing car IDs
         list_of_car_ids = []
@@ -149,7 +148,7 @@ class Car_Manager():
         # Look up car whos iD is in the list, and check it's movement.
         for id in list_of_car_ids:
             # De-Spawn it if it has traveled a certain distance
-            if list_of_cars[id].distance_from_light <= -20:
+            if list_of_cars[id].distance_from_light <= -road_length:
                 # print('DELETED CAR: ',list_of_cars[id])
                 list_of_cars.pop(id)
 
@@ -157,16 +156,16 @@ class Lane():
     def __init__(self):
         self.lane_data = {}
 
-    def run(self, list_of_cars, heading):
+    def run(self, list_of_cars, heading, road_length):
         self.lane_data = {}
         road_ascii = ''
         # print('the',list_of_cars)
         try:
             if heading == 'westbound':
-                for i in range(20, -20, -1):
+                for i in range(road_length, -road_length, -1):
                     self.lane_data[i] = False
             if heading == 'eastbound':
-                for i in range(-20, 20):
+                for i in range(-road_length, road_length):
                     self.lane_data[i] = False
         except:
             pass
@@ -181,7 +180,10 @@ class Lane():
             if self.lane_data[i] == True:
                 road_space_ascii = '[]'
             else:
-                road_space_ascii = '__'
+                if heading == 'eastbound':
+                    road_space_ascii = '__'
+                else:
+                    road_space_ascii = '  '
             road_ascii += road_space_ascii
         
         return(road_ascii, self.lane_data)
@@ -197,9 +199,13 @@ o-o>
 # Operates the run time and intersection environment
 class World_Handler():
     def __init__(self):
+        self.max_number_cars = 6
+        self.spawn_rate = 5
+        self.road_size = 10
+        self.traff_light_timer = 25
         
-        westbound_traffic_light = Traffic_Light(10)
-        eastbound_traffic_light = Traffic_Light(25)
+        westbound_traffic_light = Traffic_Light(random.randint(0,self.traff_light_timer))
+        eastbound_traffic_light = Traffic_Light(random.randint(0,self.traff_light_timer))
         self.traffic_lights = {'westbound':westbound_traffic_light, 'eastbound':eastbound_traffic_light}
 
         # Construct Traffic Lights and Cars
@@ -211,31 +217,42 @@ class World_Handler():
         self.westbound_lane = {}
         self.eastbound_lane = {}
         self.lanes = {'westbound':self.westbound_lane,'eastbound':self.eastbound_lane}
+        
         while True:
+            road_lines = True
             self.clear()
-
+            print('____' * self.road_size)
             for direction in self.traffic:
                 heading = direction
-                print(direction)
+                # print(direction)
                
                 # Retrieve data about the road
-                self.lanes[direction] = Lane().run(self.traffic[direction],heading)
-
-                print('{}        {} Light: {}\n'.format(self.lanes[direction][0],heading, self.traffic_lights[heading].color.upper()))
+                self.lanes[direction] = Lane().run(self.traffic[direction], heading, self.road_size)
+                if heading == 'westbound':
+                    print('  ' * (self.road_size),':{}'.format(self.traffic_lights[direction].color.upper()))
+                else:
+                    print('  ' * (self.road_size-2),'{}:'.format(self.traffic_lights[direction].color.upper()))
+                print('{}        {}: {}'.format(self.lanes[direction][0],heading.capitalize(), self.traffic_lights[heading].color.upper()))
+                if road_lines == True:
+                    print('----' * self.road_size)
+                    road_lines = False
                 
+                   
+                
+
                 # Call to have chance of spawing car
-                Car_Manager().car_creator(self.traffic[direction], self.traffic_lights[direction],direction)
+                Car_Manager().car_creator(self.traffic[direction], self.traffic_lights[direction],
+                direction, self.max_number_cars,self.spawn_rate,self.road_size)
 
                 # Update the car positions
                 Car_Manager().move_cars(self.traffic[direction], self.traffic_lights[direction], self.traffic[direction])
 
                 # If there are cars on the road check if they need to be removed
                 if self.traffic[direction] != {}:
-                    Car_Manager().car_despawner(self.traffic[direction])    
+                    Car_Manager().car_despawner(self.traffic[direction],self.road_size)    
                 
                 # Update Traffic light timers and data
                 self.traffic_lights[direction] = Traffic_Light_Manager.light_updater(self.traffic_lights[direction])
-
             sleep(.25)
 
     
