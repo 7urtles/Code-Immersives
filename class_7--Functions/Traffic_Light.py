@@ -10,9 +10,9 @@ run_speed = .13             # [.04-.3] Going under .04 is unstable              
 max_number_cars = 15        # Max number of cars on the road at one time        Default:  15
 spawn_rate = 5              # Car span rate [1-10]                              Default:   5
 road_size = 20              # The lenght of the road [1-40] Recommended         Default:  20
-traffic_light_timer = 25    # Starting seed for initial traffic light timer     Default:  25
+traffic_light_timer = 90    # Starting seed for initial traffic light timer     Default:  25
 light_length = 35           # How long the light takes to turn colors           Default:  35
-syncronized_lights = True
+syncronized_lights = False
 #-----------------------------------------------------------------------------------------------------
 
 
@@ -34,9 +34,9 @@ class World_Handler():
             westbound_traffic_light = Traffic_Light(self.traffic_light_timer)
             eastbound_traffic_light = Traffic_Light(self.traffic_light_timer)
         else:
-            self.traffic_light_timer = random.randint(0,traffic_light_timer)
-            westbound_traffic_light = Traffic_Light(random.randint(0,self.traffic_light_timer))
-            eastbound_traffic_light = Traffic_Light(random.randint(0,self.traffic_light_timer))
+            self.traffic_light_timer = random.randint(-traffic_light_timer,traffic_light_timer)
+            westbound_traffic_light = Traffic_Light(random.randint(-self.traffic_light_timer,self.traffic_light_timer))
+            eastbound_traffic_light = Traffic_Light(random.randint(-self.traffic_light_timer,self.traffic_light_timer))
 
         self.traffic_lights = {'westbound':westbound_traffic_light, 'eastbound':eastbound_traffic_light}
 
@@ -66,9 +66,9 @@ class World_Handler():
 
                 # Draw Traffic Light
                 if heading == 'westbound':
-                    print('  ' * (self.road_size-7),'{}:'.format(self.traffic_lights[direction].color.upper()))
+                    print('  ' * (self.road_size-7),'|{}|/'.format(self.traffic_lights[direction].color.upper()))
                 else:
-                    print('  ' * (self.road_size+5),':{}'.format(self.traffic_lights[direction].color.upper()))
+                    print('  ' * (self.road_size+4),'\|{}|'.format(self.traffic_lights[direction].color.upper()))
 
                 # Draw Cars and Lane Description
                 print('{}        {}: {}'.format(self.lanes[direction][0],heading.capitalize(), self.traffic_lights[heading].color.upper()))
