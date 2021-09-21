@@ -21,6 +21,6 @@ def smallest_to_largest(num1,num2,num3):
             count -= 1
         except:
             pass
-    return answer
+    return tuple(answer)
 
 print(smallest_to_largest(num1,num2,num3))
