@@ -9,7 +9,7 @@ import random
 #---------[WORLD SETTINGS]----------------------------------------------------------------------------
 run_speed = .05             # Under .03 can be unstable [.01-.1]                Default:  .1
 number_of_roads = 4         # Supports 1-4 roads two lane roads                 Default:   2
-road_length = 90            # The length of the road [10-70] recommended        Default:  20
+road_length = 80            # The length of the road [20-80] recommended        Default:  20
 intersection_width = 50     # Gap between streen lights [0-10]                  Default:   4
 max_number_cars = 35        # Max number of cars in a lane at one time          Default:  15
 spawn_rate = 40             # Car span rate [1-50]                              Default:  40
