@@ -281,7 +281,6 @@ class Car_Manager():
 
 
 
-
 class Lane():
     def __init__(self):
         self.lane_data = {}
@@ -306,7 +305,7 @@ class Lane():
         # Populate the lane with cars
         for car in list_of_cars:
            self.lane_data[list_of_cars[car].distance_from_light] = True 
-
+        
         # Check the road position values and assign ASCII 'car' if occupied
         for i in self.lane_data:
             if self.lane_data[i] == True:
