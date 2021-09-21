@@ -21,7 +21,7 @@ class Traffic_Light():
 class Traffic_Light_Manager():
     
     # Set light True/False values according to the 'color' value
-    def light_updater(traffic_light):
+    def light_updater(traffic_light, light_length):
         traffic_light.timer['time'] -= 1
         # print(traffic_light.timer['time'])
 
@@ -33,8 +33,8 @@ class Traffic_Light_Manager():
             traffic_light.timer['on'] = False
             traffic_light.color = 'red'
         # If the time reaches its negative value, make it green again and reset the timer
-        if traffic_light.timer['time'] < -30:
-            traffic_light.timer['time'] = 30
+        if traffic_light.timer['time'] < -light_length:
+            traffic_light.timer['time'] = light_length
             traffic_light.timer['on'] = True
             traffic_light.color = "green"
 
@@ -199,10 +199,11 @@ o-o>
 # Operates the run time and intersection environment
 class World_Handler():
     def __init__(self):
-        self.max_number_cars = 6
-        self.spawn_rate = 5
-        self.road_size = 10
-        self.traff_light_timer = 25
+        self.max_number_cars = 6    # Max number of cars on the road at one time
+        self.spawn_rate = 5         # Car span rate [1-10]
+        self.road_size = 10         # The lenght of the road (this number gets doubled)
+        self.traff_light_timer = 25 # Starting seed for initial traffic light timer
+        self.light_length = 20      # How long the light takes to turn colors
         
         westbound_traffic_light = Traffic_Light(random.randint(0,self.traff_light_timer))
         eastbound_traffic_light = Traffic_Light(random.randint(0,self.traff_light_timer))
@@ -252,7 +253,7 @@ class World_Handler():
                     Car_Manager().car_despawner(self.traffic[direction],self.road_size)    
                 
                 # Update Traffic light timers and data
-                self.traffic_lights[direction] = Traffic_Light_Manager.light_updater(self.traffic_lights[direction])
+                self.traffic_lights[direction] = Traffic_Light_Manager.light_updater(self.traffic_lights[direction], self.light_length)
             sleep(.25)
 
     
