@@ -6,30 +6,38 @@ import random
 
 
 #---------[WORLD SETTINGS]----------------------------------------------------------------------------
-run_speed = .15             # [.1=.3]                                           Default: .15
+run_speed = .13             # [.04-.3] Going under .04 is unstable              Default: .15
 max_number_cars = 15        # Max number of cars on the road at one time        Default:  15
 spawn_rate = 5              # Car span rate [1-10]                              Default:   5
 road_size = 20              # The lenght of the road [1-40] Recommended         Default:  20
 traffic_light_timer = 25    # Starting seed for initial traffic light timer     Default:  25
-light_length = 30           # How long the light takes to turn colors           Default:  20
+light_length = 35           # How long the light takes to turn colors           Default:  35
+syncronized_lights = True
 #-----------------------------------------------------------------------------------------------------
 
 
 
 # Operates the runtime and road environment
 class World_Handler():
-    def __init__(self,run_speed,max_number_cars,spawn_rate,road_size,traffic_light_timer):
+    def __init__(self,run_speed,max_number_cars,spawn_rate,road_size,traffic_light_timer,syncronized_lights):
         # Initialize runtime settings
         self.run_speed = run_speed
         self.max_number_cars = max_number_cars
         self.spawn_rate = spawn_rate 
         self.road_size = road_size 
-        self.traffic_light_timer = random.randint(0,traffic_light_timer) 
-        self.light_length = light_length 
+        self.traffic_light_timer = traffic_light_timer 
+        self.light_length = light_length
+        self.syncronized_lights = syncronized_lights
 
         # Initialize Traffic Lights
-        westbound_traffic_light = Traffic_Light(random.randint(0,self.traffic_light_timer))
-        eastbound_traffic_light = Traffic_Light(random.randint(0,self.traffic_light_timer))
+        if self.syncronized_lights == True:
+            westbound_traffic_light = Traffic_Light(self.traffic_light_timer)
+            eastbound_traffic_light = Traffic_Light(self.traffic_light_timer)
+        else:
+            self.traffic_light_timer = random.randint(0,traffic_light_timer)
+            westbound_traffic_light = Traffic_Light(random.randint(0,self.traffic_light_timer))
+            eastbound_traffic_light = Traffic_Light(random.randint(0,self.traffic_light_timer))
+
         self.traffic_lights = {'westbound':westbound_traffic_light, 'eastbound':eastbound_traffic_light}
 
         # Construct Traffic and Cars
@@ -58,9 +66,9 @@ class World_Handler():
 
                 # Draw Traffic Light
                 if heading == 'westbound':
-                    print('  ' * (self.road_size),':{}'.format(self.traffic_lights[direction].color.upper()))
+                    print('  ' * (self.road_size-7),'{}:'.format(self.traffic_lights[direction].color.upper()))
                 else:
-                    print('  ' * (self.road_size-2),'{}:'.format(self.traffic_lights[direction].color.upper()))
+                    print('  ' * (self.road_size+5),':{}'.format(self.traffic_lights[direction].color.upper()))
 
                 # Draw Cars and Lane Description
                 print('{}        {}: {}'.format(self.lanes[direction][0],heading.capitalize(), self.traffic_lights[heading].color.upper()))
@@ -104,7 +112,6 @@ class Traffic_Light():
     def __init__(self,timer):
         self.status = {'green':False, 'yellow':False, 'red':True}
         self.color = 'green'
-        self.car_approaching = False
         self.spawn_taken = False
         self.timer = {'on':True, 'time':timer}
 
@@ -123,7 +130,11 @@ class Traffic_Light_Manager():
             traffic_light.color = 'red'
         # If the time reaches its negative value, make it green again and reset the timer
         if traffic_light.timer['time'] < -light_length:
-            traffic_light.timer['time'] = light_length + random.randint(-20,20)
+            if syncronized_lights == True:
+                traffic_light.timer['time'] = light_length
+            else:
+                traffic_light.timer['time'] = light_length + random.randint(-20,20)
+
             traffic_light.timer['on'] = True
             traffic_light.color = "green"
 
@@ -183,7 +194,7 @@ class Car_Manager():
             # Otherwise stop
             else:
                 list_of_cars[car].driving = False
-            if list_of_cars[car].distance_from_light > 0 or list_of_cars[car].distance_from_light < 0:
+            if list_of_cars[car].distance_from_light > 6 or list_of_cars[car].distance_from_light < 6:
                 list_of_cars[car].driving = True
             try:
                 if traffic_positions[car].distance_from_light - traffic_positions[car-1].distance_from_light <= 1:
@@ -267,6 +278,6 @@ class Lane():
 
 
 
-World_Handler(run_speed,max_number_cars,spawn_rate,road_size,traffic_light_timer)
+World_Handler(run_speed,max_number_cars,spawn_rate,road_size,traffic_light_timer,syncronized_lights)
 
 
