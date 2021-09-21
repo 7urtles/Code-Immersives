@@ -6,14 +6,14 @@ import random
 
 
 #---------[WORLD SETTINGS]----------------------------------------------------------------------------
-run_speed = .03             # Going under .03 is unstable [.01-.3]              Default: .15
-road_size = 25              # The lenght of the road [1-40] Recommended         Default:  20
-intersection_width = 6      # Gap between streen lights [0-10]                  Default:   4
+run_speed = .1              # Under .03 can be unstable [.01-.1]                Default: .1
+road_size = 30              # The lenght of the road [10-50] Recommended        Default:  20
+intersection_width = 12      # Gap between streen lights [0-10]                  Default:   4
 max_number_cars = 15        # Max number of cars in a lane at one time          Default:  15
-spawn_rate = 40              # Car span rate [1-50]                             Default:  40
-light_length = 100           # How long the light takes to turn colors           Default:  35
+spawn_rate = 40             # Car span rate [1-50]                              Default:  40
+light_length = 100          # How long the light takes to turn colors           Default:  35
 traffic_light_timer = 40    # Starting seed for initial traffic light timer     Default:  25
-syncronize_lights = True
+syncronize_lights = False
 #-----------------------------------------------------------------------------------------------------
 
 
