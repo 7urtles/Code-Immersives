@@ -5,7 +5,6 @@ from time import sleep
 import random
 
 
-
 #---------[WORLD SETTINGS]----------------------------------------------------------------------------
 run_speed = .15             # [.1=.3]                                           Default: .15
 max_number_cars = 15        # Max number of cars on the road at one time        Default:  15
@@ -25,7 +24,7 @@ class World_Handler():
         self.max_number_cars = max_number_cars
         self.spawn_rate = spawn_rate 
         self.road_size = road_size 
-        self.traffic_light_timer = traffic_light_timer 
+        self.traffic_light_timer = random.randint(0,traffic_light_timer) 
         self.light_length = light_length 
 
         # Initialize Traffic Lights
@@ -267,11 +266,6 @@ class Lane():
         return(road_ascii, self.lane_data)
 
 
-'''
-___
-o-o>  
-
-'''
 
 World_Handler(run_speed,max_number_cars,spawn_rate,road_size,traffic_light_timer)
 
