@@ -8,9 +8,9 @@ import random
 #---------[WORLD SETTINGS]----------------------------------------------------------------------------
 run_speed = .13             # Going under .04 is unstable [.04-.3]              Default: .15
 road_size = 25              # The lenght of the road [1-40] Recommended         Default:  20
-intersection_width = 3      # Gap between streen lights [0-10]                  Default:   4
-max_number_cars = 15        # Max number of cars on the road at one time        Default:  15
-spawn_rate = 5              # Car span rate [1-10]                              Default:   5
+intersection_width = 6      # Gap between streen lights [0-10]                  Default:   4
+max_number_cars = 15        # Max number of cars in a lane at one time          Default:  15
+spawn_rate = 40              # Car span rate [1-50]                             Default:  40
 light_length = 35           # How long the light takes to turn colors           Default:  35
 traffic_light_timer = 40    # Starting seed for initial traffic light timer     Default:  25
 syncronize_lights = False
@@ -37,31 +37,49 @@ class World_Handler():
             eastbound_traffic_light = Traffic_Light(self.traffic_light_timer)
             northbound_traffic_light = Traffic_Light(self.traffic_light_timer)
             southound_traffic_light = Traffic_Light(self.traffic_light_timer)
+            westbound1_traffic_light = Traffic_Light(self.traffic_light_timer)
+            eastbound1_traffic_light = Traffic_Light(self.traffic_light_timer)
+            northbound1_traffic_light = Traffic_Light(self.traffic_light_timer)
+            southound1_traffic_light = Traffic_Light(self.traffic_light_timer)
         else:
             westbound_traffic_light = Traffic_Light(random.randint(-self.traffic_light_timer,self.traffic_light_timer))
             eastbound_traffic_light = Traffic_Light(random.randint(-self.traffic_light_timer,self.traffic_light_timer))
             northbound_traffic_light = Traffic_Light(random.randint(-self.traffic_light_timer,self.traffic_light_timer))
             southound_traffic_light = Traffic_Light(random.randint(-self.traffic_light_timer,self.traffic_light_timer))
+            westbound1_traffic_light = Traffic_Light(random.randint(-self.traffic_light_timer,self.traffic_light_timer))
+            eastbound1_traffic_light = Traffic_Light(random.randint(-self.traffic_light_timer,self.traffic_light_timer))
+            northbound1_traffic_light = Traffic_Light(random.randint(-self.traffic_light_timer,self.traffic_light_timer))
+            southound1_traffic_light = Traffic_Light(random.randint(-self.traffic_light_timer,self.traffic_light_timer))
 
-        self.traffic_lights = {'eastbound':westbound_traffic_light, 'westbound':eastbound_traffic_light,'northbound':northbound_traffic_light, 'southbound':southound_traffic_light}
+        self.traffic_lights = {'eastbound':westbound_traffic_light, 'westbound':eastbound_traffic_light,'northbound':northbound_traffic_light, 'southbound':southound_traffic_light,
+        'eastbound1':westbound1_traffic_light, 'westbound1':eastbound1_traffic_light,'northbound1':northbound1_traffic_light, 'southbound1':southound1_traffic_light}
 
         # Construct Traffic and Cars
         self.westbound_cars = {}
         self.eastbound_cars = {}
         self.northbound_cars = {}
         self.southbound_cars = {}
-        self.traffic = {'eastbound': self.westbound_cars, 'westbound': self.eastbound_cars, 'northbound': self.northbound_cars, 'southbound': self.southbound_cars}
+        self.westbound1_cars = {}
+        self.eastbound1_cars = {}
+        self.northbound1_cars = {}
+        self.southbound1_cars = {}
+        self.traffic = {'northbound': self.northbound_cars, 'northbound1': self.northbound1_cars, 'southbound': self.southbound_cars, 'southbound1': self.southbound1_cars,
+        'eastbound': self.westbound_cars, 'eastbound1': self.westbound1_cars, 'westbound': self.eastbound_cars, 'westbound1': self.eastbound1_cars}
 
         # Construct Traffic Lanes
         self.westbound_lane = {}
         self.eastbound_lane = {}
         self.northbound_lane = {}
         self.southbound_lane = {}
-        self.lanes = {'eastbound':self.westbound_lane,'westbound':self.eastbound_lane, 'northbound':self.northbound_lane,'southbound':self.southbound_lane}
+        self.westbound1_lane = {}
+        self.eastbound1_lane = {}
+        self.northbound1_lane = {}
+        self.southbound1_lane = {}
+        self.lanes = {'eastbound':self.westbound_lane,'westbound':self.eastbound_lane, 'northbound':self.northbound_lane,'southbound':self.southbound_lane,
+        'eastbound1':self.westbound1_lane,'westbound1':self.eastbound1_lane, 'northbound1':self.northbound1_lane,'southbound1':self.southbound1_lane}
         
         while True:
             self.clear()
-            road_lines = True
             # Updating every direction of traffic
             for direction in self.traffic:
                 heading = direction
@@ -70,25 +88,34 @@ class World_Handler():
                 self.lanes[direction] = Lane().run(self.traffic[direction], heading, self.road_size)
 
                 # Draw Road Imagery
-                if heading == 'eastbound' or heading == 'northbound':
-                    road_lines = True
+                if 'eastbound' == heading or 'northbound' == heading:
                     # Top edge of ASCII road
+                    # print('====' * self.road_size)
+                    
                     print('____' * self.road_size)
+                if 'eastbound' in heading or 'northbound' in heading:
                     # Traffic Light Position
                     print('  ' * (self.road_size - 1 - self.intersection_width),'|{}|/'.format(self.traffic_lights[direction].color.upper()))
 
-                elif heading == 'westbound' or heading == 'southbound':
+                if 'westbound' in heading or 'southbound' in heading:
                     print('  ' * (self.road_size - 2 + self.intersection_width),'\|{}|'.format(self.traffic_lights[direction].color.upper()))
 
                 # Draw Cars and Lane Description
                 print('{}        {}: {}'.format(self.lanes[direction][0],heading.capitalize(), self.traffic_lights[heading].color.upper()))
 
                 # Draw center line
-                if road_lines == True:
+                if '1' not in heading:
                     print('- - ' * self.road_size)
-                    road_lines = False
-                if heading == 'westbound':
-                    print('\n')
+                
+                if heading == 'southbound1' or heading == 'westbound1':
+                    print('7777' * self.road_size)
+                    print('\n\n')
+                
+                if heading == 'eastbound1' or heading == 'northbound1':
+                    print('7777' * self.road_size)
+                    print('    ' * self.road_size)
+                    print('____' * self.road_size)
+             
                 # Call to have chance of spawing car
                 Car_Manager().car_creator(self.traffic[direction], self.traffic_lights[direction],
                 direction, self.max_number_cars,self.spawn_rate,self.road_size)
@@ -165,7 +192,7 @@ class Car():
     def __init__(self,id,direction,road_position):
         self.id = id
         self.distance_from_light = road_position
-        if direction == "westbound" or direction == "southbound":
+        if 'westbound' in direction or 'southbound' in direction:
             self.distance_from_light -= 1
         self.waiting = True
         self.driving = False
@@ -177,7 +204,7 @@ class Car_Manager():
     def car_creator(self,list_of_cars, traffic_light, direction, max_number_cars,spawn_rate,road_length):
 
         # Random chance of spawing car
-        x = random.randint(spawn_rate,10)
+        x = random.randint(spawn_rate,50)
         if x == spawn_rate:
             # If there are 3 or less cars in the lane, and no car in the spawn position
             if len(list_of_cars) < max_number_cars and traffic_light.spawn_taken == False:
@@ -264,10 +291,10 @@ class Lane():
 
         # Fill the lane with empty positions
         try:
-            if heading == 'eastbound' or heading == 'northbound':
+            if 'eastbound' in heading or 'northbound' in heading:
                 for i in range(road_length, -road_length, -1):
                     self.lane_data[i] = False
-            if heading == 'westbound' or heading == 'southbound':
+            if 'westbound' in heading or 'southbound' in heading:
                 for i in range(-road_length, road_length):
                     self.lane_data[i] = False
         except:
@@ -282,7 +309,7 @@ class Lane():
             if self.lane_data[i] == True:
                 road_space_ascii = '[]'
             else:
-                if heading == 'westbound' or heading == 'southbound':
+                if '1' in heading or '1' in heading:
                     road_space_ascii = '__'
                 else:
                     road_space_ascii = '  '
