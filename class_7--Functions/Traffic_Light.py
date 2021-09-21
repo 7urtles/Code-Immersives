@@ -9,7 +9,7 @@ import random
 #---------[WORLD SETTINGS]----------------------------------------------------------------------------
 run_speed = .05             # Under .03 can be unstable [.01-.1]                Default:  .1
 number_of_roads = 4         # Supports 1-4 roads two lane roads                 Default:   2
-road_length = 20            # The length of the road [10-70] recommended        Default:  20
+road_length = 30            # The length of the road [10-70] recommended        Default:  20
 intersection_width = 10     # Gap between streen lights [0-10]                  Default:   4
 max_number_cars = 35        # Max number of cars in a lane at one time          Default:  15
 spawn_rate = 40             # Car span rate [1-50]                              Default:  40
@@ -332,13 +332,20 @@ class Display_Handler():
             print(' '+'__' * road_size)
         # Road 1 Traffic Light
         if 'eastbound' in heading or 'northbound' in heading:
-            print(' ]'+' ' * (road_size - 3 - intersection_width),'|{}|/'.format(traffic_lights[direction].color.upper()))
+            if traffic_lights[direction].color == 'green':
+                print(' ]'+' ' * (road_size - 4 - intersection_width),'\|{}|{}['.format(traffic_lights[direction].color.upper(),(road_size+intersection_width-5)*' '))
+            else:
+                print(' ]'+' ' * (road_size - 4 - intersection_width),'\|{}|{}['.format(traffic_lights[direction].color.upper(),(road_size+intersection_width-3)*' '))
+       
         # Road 2 upper edge 
         if 'westbound' == heading or 'southbound' == heading:
                 print(' '+'__' * road_size)
         # Road 2 Traffic Light
         if 'westbound' in heading or 'southbound' in heading:
-            print(' ]'+' ' * (road_size - 4 + intersection_width),'\|{}|'.format(traffic_lights[direction].color.upper()))
+            if traffic_lights[direction].color == 'green':
+                print(' ]'+' ' * (road_size - 4 + intersection_width),'\|{}|{}['.format(traffic_lights[direction].color.upper(),(road_size-intersection_width-5)*' '))
+            else:
+                print(' ]'+' ' * (road_size - 4 + intersection_width),'\|{}|{}['.format(traffic_lights[direction].color.upper(),(road_size-intersection_width-3)*' '))
             
             
 
