@@ -11,9 +11,9 @@ road_size = 25              # The lenght of the road [1-40] Recommended         
 intersection_width = 6      # Gap between streen lights [0-10]                  Default:   4
 max_number_cars = 15        # Max number of cars in a lane at one time          Default:  15
 spawn_rate = 40              # Car span rate [1-50]                             Default:  40
-light_length = 35           # How long the light takes to turn colors           Default:  35
+light_length = 100           # How long the light takes to turn colors           Default:  35
 traffic_light_timer = 40    # Starting seed for initial traffic light timer     Default:  25
-syncronize_lights = False
+syncronize_lights = True
 #-----------------------------------------------------------------------------------------------------
 
 
@@ -92,29 +92,29 @@ class World_Handler():
                     # Top edge of ASCII road
                     # print('====' * self.road_size)
                     
-                    print('____' * self.road_size)
+                    print('__' * self.road_size)
                 if 'eastbound' in heading or 'northbound' in heading:
                     # Traffic Light Position
-                    print('  ' * (self.road_size - 1 - self.intersection_width),'|{}|/'.format(self.traffic_lights[direction].color.upper()))
+                    print(' ' * (self.road_size - 1 - self.intersection_width),'|{}|/'.format(self.traffic_lights[direction].color.upper()))
 
                 if 'westbound' in heading or 'southbound' in heading:
-                    print('  ' * (self.road_size - 2 + self.intersection_width),'\|{}|'.format(self.traffic_lights[direction].color.upper()))
+                    print(' ' * (self.road_size - 2 + self.intersection_width),'\|{}|'.format(self.traffic_lights[direction].color.upper()))
 
                 # Draw Cars and Lane Description
-                print('{}        {}: {}'.format(self.lanes[direction][0],heading.capitalize(), self.traffic_lights[heading].color.upper()))
+                print('{}|        {}: {}'.format(self.lanes[direction][0],heading.capitalize(), self.traffic_lights[heading].color.upper()))
 
                 # Draw center line
                 if '1' not in heading:
-                    print('- - ' * self.road_size)
+                    print('- ' * self.road_size)
                 
                 if heading == 'southbound1' or heading == 'westbound1':
-                    print('7777' * self.road_size)
+                    print('77' * self.road_size)
                     print('\n\n')
                 
                 if heading == 'eastbound1' or heading == 'northbound1':
-                    print('7777' * self.road_size)
-                    print('    ' * self.road_size)
-                    print('____' * self.road_size)
+                    print('77' * self.road_size)
+                    print('  ' * self.road_size)
+                    print('__' * self.road_size)
              
                 # Call to have chance of spawing car
                 Car_Manager().car_creator(self.traffic[direction], self.traffic_lights[direction],
@@ -307,12 +307,12 @@ class Lane():
         # Check the road position values and assign ASCII 'car' if occupied
         for i in self.lane_data:
             if self.lane_data[i] == True:
-                road_space_ascii = '[]'
+                road_space_ascii = 'X'
             else:
                 if '1' in heading or '1' in heading:
-                    road_space_ascii = '__'
+                    road_space_ascii = '_'
                 else:
-                    road_space_ascii = '  '
+                    road_space_ascii = ' '
             road_ascii += road_space_ascii
         return(road_ascii, self.lane_data)
 
