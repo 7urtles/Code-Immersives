@@ -6,20 +6,21 @@ import random
 
 
 #---------[WORLD SETTINGS]----------------------------------------------------------------------------
-run_speed = .13             # [.04-.3] Going under .04 is unstable              Default: .15
+run_speed = .13             # Going under .04 is unstable [.04-.3]              Default: .15
+road_size = 15              # The lenght of the road [1-40] Recommended         Default:  20
+intersection_width = 3      # Gap between streen lights [0-10]                  Default:   4
 max_number_cars = 15        # Max number of cars on the road at one time        Default:  15
 spawn_rate = 5              # Car span rate [1-10]                              Default:   5
-road_size = 20              # The lenght of the road [1-40] Recommended         Default:  20
-traffic_light_timer = 40    # Starting seed for initial traffic light timer     Default:  25
 light_length = 35           # How long the light takes to turn colors           Default:  35
-syncronize_lights = True
+traffic_light_timer = 40    # Starting seed for initial traffic light timer     Default:  25
+syncronize_lights = False
 #-----------------------------------------------------------------------------------------------------
 
 
 
 # Operates the runtime and road environment
 class World_Handler():
-    def __init__(self,run_speed,max_number_cars,spawn_rate,road_size,traffic_light_timer,syncronize_lights):
+    def __init__(self,run_speed,max_number_cars,spawn_rate,road_size,traffic_light_timer,syncronize_lights,intersection_width):
         # Initialize runtime settings
         self.run_speed = run_speed
         self.max_number_cars = max_number_cars
@@ -28,35 +29,40 @@ class World_Handler():
         self.traffic_light_timer = traffic_light_timer 
         self.light_length = light_length
         self.syncronized_lights = syncronize_lights
+        self.intersection_width = intersection_width
 
         # Initialize Traffic Lights
         if self.syncronized_lights == True:
             westbound_traffic_light = Traffic_Light(self.traffic_light_timer)
             eastbound_traffic_light = Traffic_Light(self.traffic_light_timer)
+            northbound_traffic_light = Traffic_Light(self.traffic_light_timer)
+            southound_traffic_light = Traffic_Light(self.traffic_light_timer)
         else:
             self.traffic_light_timer = random.randint(-traffic_light_timer,traffic_light_timer)
             westbound_traffic_light = Traffic_Light(random.randint(-self.traffic_light_timer,self.traffic_light_timer))
             eastbound_traffic_light = Traffic_Light(random.randint(-self.traffic_light_timer,self.traffic_light_timer))
+            northbound_traffic_light = Traffic_Light(random.randint(-self.traffic_light_timer,self.traffic_light_timer))
+            southound_traffic_light = Traffic_Light(random.randint(-self.traffic_light_timer,self.traffic_light_timer))
 
-        self.traffic_lights = {'westbound':westbound_traffic_light, 'eastbound':eastbound_traffic_light}
+        self.traffic_lights = {'eastbound':westbound_traffic_light, 'westbound':eastbound_traffic_light,'northbound':northbound_traffic_light, 'southbound':southound_traffic_light}
 
         # Construct Traffic and Cars
         self.westbound_cars = {}
         self.eastbound_cars = {}
-        self.traffic = {'westbound': self.westbound_cars, 'eastbound': self.eastbound_cars}
+        self.northbound_cars = {}
+        self.southbound_cars = {}
+        self.traffic = {'eastbound': self.westbound_cars, 'westbound': self.eastbound_cars, 'northbound': self.northbound_cars, 'southbound': self.southbound_cars}
 
         # Construct Traffic Lanes
         self.westbound_lane = {}
         self.eastbound_lane = {}
-        self.lanes = {'westbound':self.westbound_lane,'eastbound':self.eastbound_lane}
+        self.northbound_lane = {}
+        self.southbound_lane = {}
+        self.lanes = {'eastbound':self.westbound_lane,'westbound':self.eastbound_lane, 'northbound':self.northbound_lane,'southbound':self.southbound_lane}
         
         while True:
             self.clear()
             road_lines = True
-
-            # Top edge of ASCII road
-            print('____' * self.road_size)
-
             # Updating every direction of traffic
             for direction in self.traffic:
                 heading = direction
@@ -64,20 +70,26 @@ class World_Handler():
                 # Initialize the Lane
                 self.lanes[direction] = Lane().run(self.traffic[direction], heading, self.road_size)
 
-                # Draw Traffic Light
-                if heading == 'westbound':
-                    print('  ' * (self.road_size-7),'|{}|/'.format(self.traffic_lights[direction].color.upper()))
-                else:
-                    print('  ' * (self.road_size+4),'\|{}|'.format(self.traffic_lights[direction].color.upper()))
+                # Draw Road Imagery
+                if heading == 'eastbound' or heading == 'northbound':
+                    road_lines = True
+                    # Top edge of ASCII road
+                    print('____' * self.road_size)
+                    # Traffic Light Position
+                    print('  ' * (self.road_size - 1 - self.intersection_width),'|{}|/'.format(self.traffic_lights[direction].color.upper()))
+
+                elif heading == 'westbound' or heading == 'southbound':
+                    print('  ' * (self.road_size - 2 + self.intersection_width),'\|{}|'.format(self.traffic_lights[direction].color.upper()))
 
                 # Draw Cars and Lane Description
                 print('{}        {}: {}'.format(self.lanes[direction][0],heading.capitalize(), self.traffic_lights[heading].color.upper()))
 
                 # Draw center line
                 if road_lines == True:
-                    print('----' * self.road_size)
+                    print('- - ' * self.road_size)
                     road_lines = False
-
+                if heading == 'westbound':
+                    print('\n')
                 # Call to have chance of spawing car
                 Car_Manager().car_creator(self.traffic[direction], self.traffic_lights[direction],
                 direction, self.max_number_cars,self.spawn_rate,self.road_size)
@@ -154,7 +166,7 @@ class Car():
     def __init__(self,id,direction,road_position):
         self.id = id
         self.distance_from_light = road_position
-        if direction == "eastbound":
+        if direction == "westbound" or direction == "southbound":
             self.distance_from_light -= 1
         self.waiting = True
         self.driving = False
@@ -194,7 +206,7 @@ class Car_Manager():
             # Otherwise stop
             else:
                 list_of_cars[car].driving = False
-            if list_of_cars[car].distance_from_light > 6 or list_of_cars[car].distance_from_light < 6:
+            if list_of_cars[car].distance_from_light > intersection_width or list_of_cars[car].distance_from_light < intersection_width:
                 list_of_cars[car].driving = True
             try:
                 if traffic_positions[car].distance_from_light - traffic_positions[car-1].distance_from_light <= 1:
@@ -247,14 +259,15 @@ class Lane():
     def run(self, list_of_cars, heading, road_length):
         self.lane_data = {}
         road_ascii = ''
+        road_space_ascii = '  '
         # print('the',list_of_cars)
 
         # Fill the lane with empty positions
         try:
-            if heading == 'westbound':
+            if heading == 'eastbound' or heading == 'northbound':
                 for i in range(road_length, -road_length, -1):
                     self.lane_data[i] = False
-            if heading == 'eastbound':
+            if heading == 'westbound' or heading == 'southbound':
                 for i in range(-road_length, road_length):
                     self.lane_data[i] = False
         except:
@@ -269,7 +282,7 @@ class Lane():
             if self.lane_data[i] == True:
                 road_space_ascii = '[]'
             else:
-                if heading == 'eastbound':
+                if heading == 'westbound' or heading == 'southbound':
                     road_space_ascii = '__'
                 else:
                     road_space_ascii = '  '
@@ -278,6 +291,6 @@ class Lane():
 
 
 
-World_Handler(run_speed,max_number_cars,spawn_rate,road_size,traffic_light_timer,syncronize_lights)
+World_Handler(run_speed,max_number_cars,spawn_rate,road_size,traffic_light_timer,syncronize_lights,intersection_width)
 
 
