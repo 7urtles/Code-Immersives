@@ -2,7 +2,7 @@
 '''
 - An Aplication sometimes needs to perfrom repetitvive actions like:
     + Getting the sum of all the values in a list
-    +Getting the average of all the numbers in a list
+    + Getting the average of all the numbers in a list
     + Entering Multiple Data Entries
     + A shopping list (scanning through the list and getting the item
         one by one)

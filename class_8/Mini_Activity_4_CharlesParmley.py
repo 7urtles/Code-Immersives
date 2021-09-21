@@ -32,3 +32,14 @@ def while_loop():
         print(line)
         counter += 1
 while_loop()
+
+
+def sum_of_list():
+    list_of_ints = [1,2,3,4,5]
+    counter = 0
+    total = 0
+    while counter < len(list_of_ints):
+        total += list_of_ints[counter]
+        counter += 1
+    print(f'\n\nThe sum of the numbers is: {total}')
+sum_of_list()
