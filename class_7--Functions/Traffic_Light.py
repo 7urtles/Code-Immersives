@@ -5,14 +5,16 @@ from time import sleep
 import random
 
 
+
 #---------[WORLD SETTINGS]----------------------------------------------------------------------------
-run_speed = .1              # Under .03 can be unstable [.01-.1]                Default: .1
-road_size = 50              # The lenght of the road [10-50] Recommended        Default:  20
-intersection_width = 5      # Gap between streen lights [0-10]                  Default:   4
-max_number_cars = 15        # Max number of cars in a lane at one time          Default:  15
+run_speed = .05             # Under .03 can be unstable [.01-.1]                Default:  .1
+number_of_roads = 4         # Supports 1-4 roads two lane roads                 Default:   2
+road_length = 20            # The length of the road [10-70] recommended        Default:  20
+intersection_width = 10     # Gap between streen lights [0-10]                  Default:   4
+max_number_cars = 35        # Max number of cars in a lane at one time          Default:  15
 spawn_rate = 40             # Car span rate [1-50]                              Default:  40
 light_length = 100          # How long the light takes to turn colors           Default:  35
-traffic_light_timer = 40    # Starting seed for initial traffic light timer     Default:  25
+traffic_light_timer = 200   # Starting seed for initial traffic light timer     Default:  200
 syncronize_lights = False
 #-----------------------------------------------------------------------------------------------------
 
@@ -20,7 +22,7 @@ syncronize_lights = False
 
 # Operates the runtime and road environment
 class World_Handler():
-    def __init__(self,run_speed,max_number_cars,spawn_rate,road_size,traffic_light_timer,syncronize_lights,intersection_width):
+    def __init__(self,run_speed,max_number_cars,spawn_rate,road_size,traffic_light_timer,syncronize_lights,intersection_width,number_of_roads):
         
         # Initialize runtime settings
         self.run_speed = run_speed
@@ -31,6 +33,7 @@ class World_Handler():
         self.light_length = light_length
         self.syncronized_lights = syncronize_lights
         self.intersection_width = intersection_width
+        self.number_of_roads = number_of_roads
 
         # Initialize Traffic Lights
         westbound_traffic_light = Traffic_Light(self.traffic_light_timer)
@@ -41,6 +44,7 @@ class World_Handler():
         eastbound1_traffic_light = Traffic_Light(self.traffic_light_timer)
         northbound1_traffic_light = Traffic_Light(self.traffic_light_timer)
         southound1_traffic_light = Traffic_Light(self.traffic_light_timer)
+
         # Dictionary Containing all Traffic Light objects
         self.traffic_lights = {'eastbound':westbound_traffic_light, 'westbound':eastbound_traffic_light,'northbound':northbound_traffic_light, 'southbound':southound_traffic_light,
         'eastbound1':westbound1_traffic_light, 'westbound1':eastbound1_traffic_light,'northbound1':northbound1_traffic_light, 'southbound1':southound1_traffic_light}
@@ -61,6 +65,27 @@ class World_Handler():
         # Dictionary Containing all car objects
         self.traffic = {'northbound': self.northbound_cars, 'northbound1': self.northbound1_cars, 'southbound': self.southbound_cars, 'southbound1': self.southbound1_cars,
         'eastbound': self.westbound_cars, 'eastbound1': self.westbound1_cars, 'westbound': self.eastbound_cars, 'westbound1': self.eastbound1_cars}
+        
+
+
+        ''' THE LANE DEMOLISHER NEEDS TO BE MOVED TO ITS OWN CLASS/FUNCTION '''
+        # -------Removes lanes from self.traffic in order to meet user specified amount of roads--------
+        # Turns the road count into a lane counter
+        total_lanes = self.number_of_roads * 2
+
+        # Build list of all the lanes
+        lane_list = []
+        for i in self.traffic:
+            lane_list.append(i)
+
+        # Remove all unwanted lanes from the program
+        while len(lane_list) > total_lanes:
+            self.traffic.pop(lane_list[-1])
+            lane_list.pop()       
+        print(lane_list)
+        ''' END OF LANE DEMOLISHER '''
+        
+
 
         # Construct Traffic Lanes
         self.westbound_lane = {}
@@ -87,6 +112,7 @@ class World_Handler():
 
                 # CALL THE DISPLAY HANDLER HERE
                 Display_Handler().display_road(heading, direction, road_size, self.traffic_lights, self.lanes)
+
                 # Call to have chance of spawing car
                 Car_Manager().car_creator(self.traffic[direction], self.traffic_lights[direction],
                 direction, self.max_number_cars,self.spawn_rate,self.road_size)
@@ -100,6 +126,14 @@ class World_Handler():
 
                 # Update Traffic light timers and data
                 self.traffic_lights[direction] = Traffic_Light_Manager.light_updater(self.traffic_lights[direction], self.light_length)
+
+            # Drawing World Data box  
+            settings = {'Speed':run_speed, 'Roads':number_of_roads, 'Cars':max_number_cars, 'Spawn Rate':spawn_rate, 'Road Length':road_length, 'Synced Traffic':syncronize_lights, 'Intersection size':intersection_width}
+            print("    ","----[WORLD SETTINGS]----")
+            for i in settings:
+                print("   ",f' {i}:[{settings[i]}]')
+            print("    ","------------------------")
+            
             sleep(self.run_speed)
 
     # clear function
@@ -290,37 +324,45 @@ class Lane():
 
 
 class Display_Handler():
-
     # Gets passed the highway information to construct the ASCII
     def display_road(self, heading, direction, road_size, traffic_lights, lanes):
         
-        # Draw Road Imagery
+        # Road 1 upper edge 
         if 'eastbound' == heading or 'northbound' == heading:
-            print('__' * road_size)
-
+            print(' '+'__' * road_size)
+        # Road 1 Traffic Light
         if 'eastbound' in heading or 'northbound' in heading:
-            # Traffic Light Position
-            print(' ' * (road_size - 1 - intersection_width),'|{}|/'.format(traffic_lights[direction].color.upper()))
-
+            print(' ]'+' ' * (road_size - 3 - intersection_width),'|{}|/'.format(traffic_lights[direction].color.upper()))
+        # Road 2 upper edge 
+        if 'westbound' == heading or 'southbound' == heading:
+                print(' '+'__' * road_size)
+        # Road 2 Traffic Light
         if 'westbound' in heading or 'southbound' in heading:
-            print(' ' * (road_size - 2 + intersection_width),'\|{}|'.format(traffic_lights[direction].color.upper()))
+            print(' ]'+' ' * (road_size - 4 + intersection_width),'\|{}|'.format(traffic_lights[direction].color.upper()))
+            
+            
 
         # Draw Cars and Lane Description
-        print('{}|        {}: {}'.format(lanes[direction][0],heading.capitalize(), traffic_lights[heading].color.upper()))
+        print(' ]{}[        {}: {}'.format(lanes[direction][0],heading.capitalize(), traffic_lights[heading].color.upper()))
 
-        # Draw center line
+        # Dashed lane divider
         if '1' not in heading:
-            print('- ' * road_size)
+            print(' :'+' -' * road_size+':')
         
-        if heading == 'southbound1' or heading == 'westbound1':
-            print('77' * road_size)
-            print('\n\n')
-        
+        #  Top road barriers and spacing per highway
         if heading == 'eastbound1' or heading == 'northbound1':
-            print('77' * road_size)
-            print('  ' * road_size)
-            print('__' * road_size)
+            print(' 77'+'77' * road_size)
+            print('','  ' * road_size)
+            
+
+        # Bottom road barries per highway
+        if heading == 'southbound1' or heading == 'westbound1':
+            print(' 77'+'77' * road_size)
+            print('\n\n')
+
+        
+        
 
 
 # STARTS THE APP using specified settings (at top of file)
-World_Handler(run_speed,max_number_cars,spawn_rate,road_size,traffic_light_timer,syncronize_lights,intersection_width)
+World_Handler(run_speed,max_number_cars,spawn_rate,road_length,traffic_light_timer,syncronize_lights,intersection_width,number_of_roads)
