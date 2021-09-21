@@ -1,28 +1,36 @@
-# Check for the greatest of 3 numbers
-# Write a Program to imitate a traffic light.
-#   Submit on Populi
+# B. Write a program to imitate a Traffic Light. _(Think about the information you need to generate to make your program mimic the real world.
 
 from os import system, name
 from time import sleep
 import random
 
-# B. Write a program to imitate a Traffic Light. _(Think about the information you need to generate to make your program mimic the real world.
-# Operates the run time and intersection environment
-class World_Handler():
-    def __init__(self):
 
-        # These are the world variables.
-        # Feel free to tinker here
-        self.run_speed = .15        # [.1=.3]                                           Default: .15
-        self.max_number_cars = 15   # Max number of cars on the road at one time        Default:  15
-        self.spawn_rate = 5         # Car span rate [1-10]                              Default:   5
-        self.road_size = 20         # The lenght of the road [1-40] Recommended         Default:  20
-        self.traff_light_timer = 25 # Starting seed for initial traffic light timer     Default:  25
-        self.light_length = 20      # How long the light takes to turn colors           Default:  20
-        
+
+#---------[WORLD SETTINGS]----------------------------------------------------------------------------
+run_speed = .15             # [.1=.3]                                           Default: .15
+max_number_cars = 15        # Max number of cars on the road at one time        Default:  15
+spawn_rate = 5              # Car span rate [1-10]                              Default:   5
+road_size = 20              # The lenght of the road [1-40] Recommended         Default:  20
+traffic_light_timer = 25    # Starting seed for initial traffic light timer     Default:  25
+light_length = 20           # How long the light takes to turn colors           Default:  20
+#-----------------------------------------------------------------------------------------------------
+
+
+
+# Operates the runtime and road environment
+class World_Handler():
+    def __init__(self,run_speed,max_number_cars,spawn_rate,road_size,traffic_light_timer):
+        # Initialize runtime settings
+        self.run_speed = run_speed
+        self.max_number_cars = max_number_cars
+        self.spawn_rate = spawn_rate 
+        self.road_size = road_size 
+        self.traffic_light_timer = traffic_light_timer 
+        self.light_length = light_length 
+
         # Initialize Traffic Lights
-        westbound_traffic_light = Traffic_Light(random.randint(0,self.traff_light_timer))
-        eastbound_traffic_light = Traffic_Light(random.randint(0,self.traff_light_timer))
+        westbound_traffic_light = Traffic_Light(random.randint(0,self.traffic_light_timer))
+        eastbound_traffic_light = Traffic_Light(random.randint(0,self.traffic_light_timer))
         self.traffic_lights = {'westbound':westbound_traffic_light, 'eastbound':eastbound_traffic_light}
 
         # Construct Traffic and Cars
@@ -265,6 +273,6 @@ o-o>
 
 '''
 
-World_Handler()
+World_Handler(run_speed,max_number_cars,spawn_rate,road_size,traffic_light_timer)
 
 
