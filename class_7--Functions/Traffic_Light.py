@@ -333,9 +333,9 @@ class Display_Handler():
         # Road 1 Traffic Light
         if 'eastbound' in heading or 'northbound' in heading:
             if traffic_lights[direction].color == 'green':
-                print(' ]'+' ' * (road_size - 4 - intersection_width),'\|{}|{}['.format(traffic_lights[direction].color.upper(),(road_size+intersection_width-5)*' '))
+                print(' ]'+' ' * (road_size - 4 - intersection_width),'|{}|/{}['.format(traffic_lights[direction].color.upper(),(road_size+intersection_width-5)*' '))
             else:
-                print(' ]'+' ' * (road_size - 4 - intersection_width),'\|{}|{}['.format(traffic_lights[direction].color.upper(),(road_size+intersection_width-3)*' '))
+                print(' ]'+' ' * (road_size - 4 - intersection_width),'|{}|/{}['.format(traffic_lights[direction].color.upper(),(road_size+intersection_width-3)*' '))
        
         # Road 2 upper edge 
         if 'westbound' == heading or 'southbound' == heading:
