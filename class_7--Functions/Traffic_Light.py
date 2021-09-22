@@ -7,15 +7,15 @@ import random
 
 
 #---------[WORLD SETTINGS]----------------------------------------------------------------------------
-run_speed = .05             # Under .03 can be unstable [.01-.1]                Default:  .1
+run_speed = .04             # Under .03 can be unstable [.01-.1]                Default:  .1
 number_of_roads = 4         # Supports 1-4 roads two lane roads                 Default:   2
-road_length = 80            # The length of the road [20-80] recommended        Default:  20
-intersection_width = 50     # Gap between streen lights [0-10]                  Default:   4
-max_number_cars = 35        # Max number of cars in a lane at one time          Default:  15
+road_length = 60            # The length of the road [20-80] recommended        Default:  20
+intersection_width = 20     # Gap between streen lights [0-10]                  Default:   4
+max_number_cars = 60        # Max number of cars in a lane at one time          Default:  15
 spawn_rate = 40             # Car span rate [1-50]                              Default:  40
-light_length = 100          # How long the light takes to turn colors           Default:  35
+light_length = 300          # How long the light takes to turn colors           Default:  35
 traffic_light_timer = 200   # Starting seed for initial traffic light timer     Default:  200
-syncronize_lights = False
+syncronize_lights = True
 #-----------------------------------------------------------------------------------------------------
 
 
@@ -48,7 +48,7 @@ class World_Handler():
         # Dictionary Containing all Traffic Light objects
         self.traffic_lights = {'eastbound':westbound_traffic_light, 'westbound':eastbound_traffic_light,'northbound':northbound_traffic_light, 'southbound':southound_traffic_light,
         'eastbound1':westbound1_traffic_light, 'westbound1':eastbound1_traffic_light,'northbound1':northbound1_traffic_light, 'southbound1':southound1_traffic_light}
-        # If Lights are not set to synced, give their timers random values
+        # If Lights are not set to synced, assign their timers random values
         for light in self.traffic_lights:
             if self.syncronized_lights == False:
                 self.traffic_lights[light] = Traffic_Light(random.randint(-self.traffic_light_timer,self.traffic_light_timer))
@@ -68,7 +68,22 @@ class World_Handler():
         
 
 
-        ''' THE LANE DEMOLISHER NEEDS TO BE MOVED TO ITS OWN CLASS/FUNCTION '''
+        # Construct Traffic Lanes
+        self.westbound_lane = {}
+        self.eastbound_lane = {}
+        self.northbound_lane = {}
+        self.southbound_lane = {}
+        self.westbound1_lane = {}
+        self.eastbound1_lane = {}
+        self.northbound1_lane = {}
+        self.southbound1_lane = {}
+        # Dictionary Containing all lane objects
+        self.lanes = {'eastbound':self.westbound_lane,'westbound':self.eastbound_lane, 'northbound':self.northbound_lane,'southbound':self.southbound_lane,
+        'eastbound1':self.westbound1_lane,'westbound1':self.eastbound1_lane, 'northbound1':self.northbound1_lane,'southbound1':self.southbound1_lane}
+
+
+
+        ''' THE LANE BULLDOZER NEEDS TO BE MOVED TO ITS OWN CLASS/FUNCTION '''
         # -------Removes lanes from self.traffic in order to meet user specified amount of roads--------
         # Turns the road count into a lane counter
         total_lanes = self.number_of_roads * 2
@@ -83,23 +98,9 @@ class World_Handler():
             self.traffic.pop(lane_list[-1])
             lane_list.pop()       
         print(lane_list)
-        ''' END OF LANE DEMOLISHER '''
+        ''' END OF LANE BULLDOZER '''
         
 
-
-        # Construct Traffic Lanes
-        self.westbound_lane = {}
-        self.eastbound_lane = {}
-        self.northbound_lane = {}
-        self.southbound_lane = {}
-        self.westbound1_lane = {}
-        self.eastbound1_lane = {}
-        self.northbound1_lane = {}
-        self.southbound1_lane = {}
-        # Dictionary Containing all lane objects
-        self.lanes = {'eastbound':self.westbound_lane,'westbound':self.eastbound_lane, 'northbound':self.northbound_lane,'southbound':self.southbound_lane,
-        'eastbound1':self.westbound1_lane,'westbound1':self.eastbound1_lane, 'northbound1':self.northbound1_lane,'southbound1':self.southbound1_lane}
-        
         # MAIN LOOP
         while True:
             self.clear()
@@ -309,7 +310,7 @@ class Lane():
         # Check the road position values and assign ASCII 'car' if occupied
         for i in self.lane_data:
             if self.lane_data[i] == True:
-                road_space_ascii = 'X'
+                road_space_ascii = 'O'
             else:
                 if '1' in heading or '1' in heading:
                     road_space_ascii = '_'
@@ -347,7 +348,6 @@ class Display_Handler():
                 print(' ]'+' ' * (road_size - 4 + intersection_width),'\|{}|{}['.format(traffic_lights[direction].color.upper(),(road_size-intersection_width-3)*' '))
             
             
-
         # Draw Cars and Lane Description
         print(' ]{}[        {}: {}'.format(lanes[direction][0],heading.capitalize(), traffic_lights[heading].color.upper()))
 
@@ -365,9 +365,6 @@ class Display_Handler():
         if heading == 'southbound1' or heading == 'westbound1':
             print(' 77'+'77' * road_size)
             print('\n\n')
-
-        
-        
 
 
 # STARTS THE APP using specified settings (at top of file)
