@@ -7,15 +7,16 @@ import random
 
 
 #---------[WORLD SETTINGS]----------------------------------------------------------------------------
-run_speed = .04             # Under .03 can be unstable [.01-.1]                Default:  .1
+run_speed = .05             # Under .03 can be unstable [.01-.1]                Default:  .1
 number_of_roads = 4         # Supports 1-4 roads two lane roads                 Default:   2
-road_length = 60            # The length of the road [20-80] recommended        Default:  20
+map_size = 90               # The length of the road [20-80] recommended        Default:  20
 intersection_width = 20     # Gap between streen lights [0-10]                  Default:   4
-max_number_cars = 60        # Max number of cars in a lane at one time          Default:  15
+max_number_cars = 5         # Max number of cars in a lane at one time          Default:  15
 spawn_rate = 40             # Car span rate [1-50]                              Default:  40
 light_length = 300          # How long the light takes to turn colors           Default:  35
 traffic_light_timer = 200   # Starting seed for initial traffic light timer     Default:  200
 syncronize_lights = True
+random_decisions = False
 #-----------------------------------------------------------------------------------------------------
 
 
@@ -83,8 +84,32 @@ class World_Handler():
         self.lanes = {'eastbound':self.westbound_lane,'westbound':self.eastbound_lane, 'northbound':self.northbound_lane,'southbound':self.southbound_lane,
         'eastbound1':self.westbound1_lane,'westbound1':self.eastbound1_lane, 'northbound1':self.northbound1_lane,'southbound1':self.southbound1_lane}
 
+        # Construct the worlds map
+        self.map = {}
+        x = 0
+        y = 0
+        map_item_counter = 1
+        map_height = map_size//2
+        for column in range(map_height):
 
+            for row in range(map_size):
+                
+                self.map[map_item_counter] = {'x':x, 'y':y, 'occupied':False, 'edge':False}
 
+                if map_item_counter % map_size == 0:
+                    self.map[map_item_counter]['edge'] = True
+                elif y == 0 or y == map_height-1:
+                    self.map[map_item_counter]['edge'] = True
+                elif x == 0 or x == map_size-1:
+                    self.map[map_item_counter]['edge'] = True
+                    
+                x += 1
+                map_item_counter += 1
+            x = 0
+            y += 1
+        # print(self.map)
+        # return
+        
 
         ''' THE LANE BULLDOZER NEEDS TO BE MOVED TO ITS OWN CLASS/FUNCTION '''
         # -------Removes lanes from self.traffic in order to meet user specified amount of roads--------
@@ -104,13 +129,17 @@ class World_Handler():
 
 
         self.settings = {'Speed':run_speed, 'Roads':number_of_roads, 'Cars':max_number_cars, 'spawn_rate':spawn_rate, 
-        'road_size':road_length, 'Synced Traffic':syncronize_lights, 'Intersection size':intersection_width, 
+        'road_size':map_size, 'Synced Traffic':syncronize_lights, 'Intersection size':intersection_width, 
         'traffic_light_timer':traffic_light_timer, 'light_length':light_length}
 
-        # WOLRD OBJECT containing all data about the world
-        self.world = {'settings':self.settings, 'cars':self.traffic, 'traffic_lights':self.traffic_lights, 'lanes':self.lanes}
 
-        # MAIN LOOP
+
+        # CREATING WOLRD OBJECT containing all data about the world
+        self.world = {'settings':self.settings, 'cars':self.traffic, 'traffic_lights':self.traffic_lights, 'lanes':self.lanes, 'map':self.map}
+
+        count = 0
+        car_counter = 0
+        # -----------> MAIN LOOP <--------------
         while True:
             self.clear()
             # Initialize the Lane
@@ -127,6 +156,7 @@ class World_Handler():
             Display_Handler().display_road(self.world)
             # Wait before starting the loop again, controls run speed of program
             sleep(self.run_speed)
+        # ------------> END LOOP <--------------
 
 
     # clear screen
@@ -137,9 +167,6 @@ class World_Handler():
         # for mac and linux(here, os.name is 'posix')
         else:
             _ = system('clear')
-
-
-
 
 class Traffic_Light():
     def __init__(self,timer):
@@ -189,10 +216,14 @@ class Car():
         if 'westbound' in direction or 'southbound' in direction:
             self.distance_from_light -= 1
         self.id = id
+        self.name = 'car'
         self.waiting = True
         self.driving = False
         self.in_spawn = True
-        self.room_ahead = False
+        self.area_around = {}
+        self.last_position = 0
+        self.last_movement_direction = 0
+        self.movement_direction = 1
         self.color = color
         self.icon = 'O'
 
@@ -270,7 +301,7 @@ class Car_Manager():
     # Despawing cars after the leave the map
     def destroy(self,world):
         for direction in world['cars']: 
-            road_length = world['settings']['road_size']
+            map_size = world['settings']['road_size']
             # Build a list of existing car IDs
             list_of_car_ids = []
             for car in world['cars'][direction]:
@@ -279,7 +310,7 @@ class Car_Manager():
             # Look up car whos iD is in the list, and check it's movement.
             for id in list_of_car_ids:
                 # De-Spawn it if it has traveled a certain distance
-                if world['cars'][direction][id].distance_from_light <= -road_length:
+                if world['cars'][direction][id].distance_from_light <= -map_size:
                     # print('DELETED CAR: ',list_of_cars[id])
                     world['cars'][direction].pop(id)
         return world
@@ -292,7 +323,7 @@ class Lane():
         self.lane_data = {}
 
     def run(self, world):
-        road_length = world['settings']['road_size']
+        map_size = world['settings']['road_size']
         for direction in world['cars']:
             self.lane_data = {}
             road_ascii = ''
@@ -301,10 +332,10 @@ class Lane():
             # Fill the lane with empty positions
             try:
                 if 'eastbound' in direction or 'northbound' in direction:
-                    for i in range(road_length, -road_length, -1):
+                    for i in range(map_size, -map_size, -1):
                         self.lane_data[i] = False
                 if 'westbound' in direction or 'southbound' in direction:
-                    for i in range(-road_length, road_length):
+                    for i in range(-map_size, map_size):
                         self.lane_data[i] = False
             except:
                 pass
@@ -379,13 +410,6 @@ class Display_Handler():
                 print(' 77'+'77' * road_size)
                 print('\n\n')
 
-            # Drawing World Data box  
-            # print("    ","----[WORLD SETTINGS]----")
-            # for i in world['settings']:
-            #     print("   ",f' {i}:[{world}]')
-            #     pass
-            # print("    ","------------------------")
-
 
 # STARTS THE APP using specified settings (at top of file)
-World_Handler(run_speed,max_number_cars,spawn_rate,road_length,traffic_light_timer,syncronize_lights,intersection_width,number_of_roads)
+World_Handler(run_speed,max_number_cars,spawn_rate,map_size,traffic_light_timer,syncronize_lights,intersection_width,number_of_roads)
