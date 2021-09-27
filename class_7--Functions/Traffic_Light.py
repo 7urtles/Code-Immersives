@@ -7,15 +7,15 @@ import random
 
 
 #---------[WORLD SETTINGS]----------------------------------------------------------------------------
-run_speed = .05             # Under .03 can be unstable [.01-.1]                Default:  .1
-number_of_roads = 4         # Supports 1-4 roads two lane roads                 Default:   2
-map_size = 90               # The length of the road [20-80] recommended        Default:  20
+run_speed = .03             # Under .03 can be unstable [.01-.1]                Default:  .1
+number_of_roads = 2         # Supports 1-4 roads two lane roads                 Default:   2
+map_size = 70               # The length of the road [20-80] recommended        Default:  20
 intersection_width = 20     # Gap between streen lights [0-10]                  Default:   4
-max_number_cars = 5         # Max number of cars in a lane at one time          Default:  15
+max_number_cars = 200         # Max number of cars in a lane at one time          Default:  15
 spawn_rate = 40             # Car span rate [1-50]                              Default:  40
 light_length = 300          # How long the light takes to turn colors           Default:  35
 traffic_light_timer = 200   # Starting seed for initial traffic light timer     Default:  200
-syncronize_lights = True
+syncronize_lights = False
 random_decisions = False
 #-----------------------------------------------------------------------------------------------------
 
@@ -137,8 +137,6 @@ class World_Handler():
         # CREATING WOLRD OBJECT containing all data about the world
         self.world = {'settings':self.settings, 'cars':self.traffic, 'traffic_lights':self.traffic_lights, 'lanes':self.lanes, 'map':self.map}
 
-        count = 0
-        car_counter = 0
         # -----------> MAIN LOOP <--------------
         while True:
             self.clear()
