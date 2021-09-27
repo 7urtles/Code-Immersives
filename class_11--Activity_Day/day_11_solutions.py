@@ -1,9 +1,10 @@
 
 
-# Day 11 Activities
+# -------[Day 11 Activities]-------
 
 # Write a function called isEven() that will take in a number 
 # The function should return whether the number is even or not
+
 def isEven(number):
     result = False
     # If the number divided by two has no remainder
@@ -12,6 +13,7 @@ def isEven(number):
         result = True
     # Print the result
     print(f'The number {number} is even: {result}')
+
 isEven(9)
 
 
@@ -33,6 +35,22 @@ def isSorted(number_list):
         else:
             # Set the sorted value to False
             sorted = False
+            # And break the loop, no further checking necessary
+            break
     print(f'The list is sorted: {sorted}')
 
-isSorted([0,1,2,3,1])
+isSorted([0,1,2,3,4])
+
+# Write a function that takes a string as a parameter
+# Function should figure out if word is a palindrome and return True/False accordingly
+
+def isPalindrome(word):
+    is_palindrome = False
+
+    # If the word is the same as its self reversed
+    if word == word[-1::-1]:
+        # Set palindrome value to True
+        is_palindrome = True
+    print(f'The word {word} is a palindrome: {is_palindrome}')
+
+isPalindrome('racecar')
