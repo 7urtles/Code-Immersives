@@ -51,9 +51,11 @@ isSorted([0,1,2,3,4])
 def isPalindrome(word):
     is_palindrome = False
     # If the word is the same as its self reversed
-    if word == word[-1::-1]:
+    if word == word[::-1]:
         # Set palindrome value to True
         is_palindrome = True
     print(f'The word {word} is a palindrome: {is_palindrome}')
 
 isPalindrome('racecar')
+
+print('car'[::])
