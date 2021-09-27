@@ -2,6 +2,7 @@
 
 # -------[Day 11 Activities]-------
 
+
 # Write a function called isEven() that will take in a number 
 # The function should return whether the number is even or not
 
@@ -15,6 +16,7 @@ def isEven(number):
     print(f'The number {number} is even: {result}')
 
 isEven(9)
+
 
 
 # Write a function called isSorted which will be passed in a list of numbers
@@ -41,12 +43,13 @@ def isSorted(number_list):
 
 isSorted([0,1,2,3,4])
 
+
+
 # Write a function that takes a string as a parameter
 # Function should figure out if word is a palindrome and return True/False accordingly
 
 def isPalindrome(word):
     is_palindrome = False
-
     # If the word is the same as its self reversed
     if word == word[-1::-1]:
         # Set palindrome value to True
