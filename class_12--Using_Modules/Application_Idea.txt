@@ -17,4 +17,5 @@ Issues:
     -Selenium does not work well in headless server environments.
 
 Fixes:
-    -Access to the Populi API will allow much faster running times and lower resource consumption
+    -Access to the Populi API will allow much faster running times and lower resource consumption.
+    -The bot needs access to a Populi account with 'staff' privileges. 'Admin' privileges are not necessary.
