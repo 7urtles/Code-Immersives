@@ -6,7 +6,6 @@ from random import randrange
 
 def random_list_generator(list_length = 5):
     result_list = []
-
     # Iterate a specified amount of times
     for number in range(0,list_length):
         # Only add random numbers between 19 and 78
