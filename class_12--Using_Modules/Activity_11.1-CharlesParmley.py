@@ -2,6 +2,7 @@
 # It should take in a number that is the size of the list.
 # The values passed in should be between 20 and 78.
 
+# Import necessary random generating function
 from random import randrange
 
 def random_list_generator(list_length = 5):
