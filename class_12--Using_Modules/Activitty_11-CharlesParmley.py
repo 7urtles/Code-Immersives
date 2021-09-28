@@ -8,7 +8,7 @@ def random_number_maker(list_length):
     # List to hold generated numbers
     random_number_list = []
     # Run the random generator 5 times
-    for iterations in range(0,5):
+    for iterations in range(0,list_length):
         # Create a random number
         random_number = getrandbits(10)
         # Append it to the list
