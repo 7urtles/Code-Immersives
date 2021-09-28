@@ -5,12 +5,12 @@
 # Import necessary random generating function
 from random import randrange
 
-def random_list_generator(list_length = 5):
+def random_list_generator(list_length=5):
     result_list = []
     # Iterate a specified amount of times
     for number in range(0,list_length):
         # Only add random numbers between 19 and 78
         result_list.append(randrange(20,78))
-    print(result_list)
+    print(f'List of random numbers from 19 up to 78: {result_list}')
 
 random_list_generator()
