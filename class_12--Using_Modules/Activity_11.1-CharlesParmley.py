@@ -12,4 +12,4 @@ def random_list_generator(list_length = 5):
         result_list.append(randrange(20,78))
     print(result_list)
 
-random_list_generator(100)
+random_list_generator()
