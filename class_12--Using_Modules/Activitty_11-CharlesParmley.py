@@ -4,7 +4,7 @@
 
 # importing the necessary function from the module
 from random import getrandbits
-def random_number_maker(list_length):
+def random_number_maker(list_length=5):
     # List to hold generated numbers
     random_number_list = []
     # Run the random generator 5 times
@@ -13,7 +13,28 @@ def random_number_maker(list_length):
         random_number = getrandbits(10)
         # Append it to the list
         random_number_list.append(random_number)
-    print(random_number_list)
+    print(f'Some numbers from 0 up to 1024: {random_number_list}')
 
 random_number_maker(5)
-    
+
+
+
+
+# Create a function that generates a random list
+# It should take in a number that is the size of the list.
+# The values passed in should be between 20 and 78.
+
+# Import necessary random generating function
+from random import randrange
+
+def random_list_generator(list_length=5):
+    result_list = []
+    # Iterate a specified amount of times
+    for number in range(0,list_length):
+        # Only add random numbers between 19 and 78
+        result_list.append(randrange(20,78))
+    print(f'List of random numbers from 19 up to 78: {result_list}')
+
+random_list_generator()
+
+
