@@ -1,0 +1,20 @@
+An application to retrieve and post new assignments from Populi into Slack
+
+Libraries/Extras Needed:
+    -Selenium
+    -Slacks Bot Application API
+    -Populi API access
+
+Concept:
+    -The script will use my Populi account data to log in and retrieve a list of assignments.
+    -Save those assignments to a text file.
+    -Repeat the process and look for assignments not found in the text file.
+    -When one is found, using a Slack Bot Application, it will be posted into the general chat
+        and added to the known assignments list
+
+Issues:
+    -Selenium is very slow and resource heavy.
+    -Selenium does not work well in headless server environments.
+
+Fixes:
+    -Access to the Populi API will allow much faster running times and lower resource consumption
