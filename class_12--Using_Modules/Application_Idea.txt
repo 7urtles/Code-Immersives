@@ -1,4 +1,4 @@
-An application to retrieve and post new assignments from Populi into Slack
+An application to retrieve and post new assignments from Populi into Slack:
 
 Libraries/Extras Needed:
     -Selenium
