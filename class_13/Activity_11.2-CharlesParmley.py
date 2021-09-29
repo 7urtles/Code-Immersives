@@ -2,6 +2,7 @@
 from random import randint
 
 def rock_paper_scissors():
+
     # Present choices to user
     user_choice = input('\n[1] Rock \n[2] Paper \n[3] Scissors \nChoice: ')
 
@@ -17,6 +18,7 @@ def rock_paper_scissors():
         2 : 'Paper',
         3 : 'Scissors',
     }
+    
     # Display users and computers choice
     print(f'\nYou: {options[user_choice]}')
     print(f'Computer: {options[computer_choice]}\n')
@@ -27,7 +29,7 @@ def rock_paper_scissors():
     if result == -1 or result == 2 :
         print('You lose.')
     
-    elif user_choice == computer_choice:
+    elif result == 0:
         print('Draw.')
 
     else:
