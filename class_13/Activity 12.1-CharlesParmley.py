@@ -7,6 +7,7 @@
 import statistics
 
 test_list = [88,78,96,84,65,72,95,81,82,60,73]
+
 def number_standard_deviation_sum(grade_list):
     adjusted_grades = []
 
