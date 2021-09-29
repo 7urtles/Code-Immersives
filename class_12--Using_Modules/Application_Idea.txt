@@ -1,4 +1,5 @@
-An application to retrieve and post new assignments from Populi into Slack:
+
+Automated application to retrieve and post new assignments from Populi into Slack:
 
 Libraries/Extras Needed:
     -Selenium
@@ -10,12 +11,38 @@ Concept:
     -Save those assignments to a text file.
     -Repeat the process and look for assignments not found in the text file.
     -When one is found, using a Slack Bot Application, it will be posted into the general chat
-        and added to the known assignments list
+     and added to the known assignments list
 
 Issues:
-    -Selenium is very slow and resource heavy.
-    -Selenium does not work well in headless server environments.
+    -Selenium is very slow and resource heavy:
+        Selenium does not work in headless server environments. This means it cannot be released to a 
+        dedicated server and left to run. Currently it is running on my home computer and consuming
+        ~180MB of RAM. Not ideal for anything except proof of concept.
+
+        Utilizing the Popouli API would reduce overhead by 10 times and remove the need for simulated 
+        keyboard input. Not doing so is restricting the application from being deployed on my home server 
+        or to a cloud hosted solution such as Linode, Amazon, Azure, etc....
 
 Fixes:
-    -Access to the Populi API will allow much faster running times and lower resource consumption.
-    -The bot needs access to a Populi account with 'staff' privileges. 'Admin' privileges are not necessary.
+    -Access to the Populi API will allow much faster running times and lower resource consumption:
+        The bot only needs access to a Populi account with 'Staff' privileges. 
+        'Admin' privileges are not necessary.
+
+
+Extra Features:
+
+        Populi API access would also open the door to interaction between Populi and Slack via 
+        the Bot Application.
+        
+        Here are some example of the features API access would enable instructors to do via the Slack Bot:
+            -Create Populi assignments
+            -View Populi assignment submitions
+            -Monitor late/missing assignments
+            -Run students code assignments in order to grade them
+            -Submit assignment grades to Populi
+
+
+A working prototype is currently deployed to slack and available for demonstration of what is
+listed in the 'Concept' section above. Thank you for reading!
+
+-Charles H Parmley
