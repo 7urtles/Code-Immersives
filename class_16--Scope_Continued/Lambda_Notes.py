@@ -30,6 +30,7 @@ result = (lambda x : 2 + x)(number)
 lambda x : x + 2
 
 # benefecial over an expression?:
+x=0
 x = x + 2
 
 #   ?????
