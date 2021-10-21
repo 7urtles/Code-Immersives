@@ -1,0 +1,21 @@
+emp id,First name,Last name,Middle name,Gender,Pronouns used,Marital Status,Date hired,Supervisor,Term date,Term Reason,Department,Max sick days,Sick day 1,Sick day 2,Sick day 3,Sick day 4,Sick day 5,Sick day 6,Sick day 7,Sick day 8,Sick day 9,Sick day 10,Sales_1,Sales_2,Sales_3,Sales_4,Sales_5,Sales_6,Sales_7,Sales_Date_1,Sales_Date_2,Sales_Date_3,Sales_Date_4,Sales_Date_5,Sales_Date_6,Sales_date_7
+EE-001,George,Deeds,Oscar,Male,,Married,2/12/2011,,,,Finance,5,5/20/2018,,,,,,,,,,,,,,,,,,,,,,,
+EE-002,Mary,Wells,Virginia,Female,,Married,3/10/2015,EE-001,5/12/2019,Quit,Finance,5,,,,,,,,,,,,,,,,,,,,,,,,
+EE-003,Donald,Wright,,Male,,Divorced,8/1/2014,EE-001,6/20/2020,Fired,Back Office,5,,,,,,,,,,,,,,,,,,,,,,,,
+EE-004,Shiela,Soros,Olivia,Female,,Married,2/12/2017,EE-007,8/9/2020,Died,Accounting,5,3/12/2020,3/13/2020,3/14/2020,3/15/2020,3/16/2020,3/17/2020,3/18/2020,3/19/2020,3/20/2020,,,,,,,,,,,,,,,
+EE-005,Samuel,Rickets,Axel,Male,,Single,12/6/2017,EE-001,,,Finance,5,,,,,,,,,,,,,,,,,,,,,,,,
+EE-006,April,Walters,Amanda,Female,,Married,11/4/2015,EE-001,,,Finance,5,,,,,,,,,,,,,,,,,,,,,,,,
+EE-007,Avi,Feldman,,Male,,Single,6/13/2016,EE-001,,,Accounting,5,8/9/2021,1/12/2021,1/13/2021,,,,,,,,,,,,,,,,,,,,,
+EE-008,Lea,Goldman,Elisa,Female,,Single,7/18/2019,EE-005,,,Finance,5,,,,,,,,,,,,,,,,,,,,,,,,
+EE-009,Henry,Williams,Robert,Male,,Widowed,10/5/2017,EE-005,,,Finance,5,,,,,,,,,,,,,,,,,,,,,,,,
+EE-010,Lois,Engels,,Female,,Single,3/18/2010,EE-001,,,Human Resources,5,2/12/2021,2/13/2021,,,,,,,,,,,,,,,,,,,,,,
+EE-011,Fredrick,Rome,Aaron,Male,,Single,8/1/2018,EE-010,,,Human Resources,5,,,,,,,,,,,,,,,,,,,,,,,,
+EE-012,Regina,Polk,Ann,Female,,Single,12/10/2018,EE-010,,,Human Resources,5,,,,,,,,,,,,,,,,,,,,,,,,
+EE-013,Sara,Silver,Omara,Female,,Single,4/16/2016,EE-007,,,Accounting,5,10/1/2021,10/2/2021,10/3/2021,,,,,,,,,,,,,,,,,,,,,
+EE-014,Donald,Friar,Paul,Male,,Single,2/25/2017,EE-007,,,Accounting,5,,,,,,,,,,,,,,,,,,,,,,,,
+EE-015,Wendy,Rose,,Female,,Married,5/17/2016,EE-017,,,Sales,5,,,,,,,,,,,10000,9000,4500,12000,4000,7000,6300,1/3/2021,3/20/2021,4/29/2021,6/30/2021,8/5/2021,9/16/2021,10/2/2016
+EE-016,Quentin,Paul,,Male,,Married,5/18/2018,EE-017,,,Sales,5,4/4/2021,,,,,,,,,,12000,6000,15000,8000,13000,12000,4000,1/4/2021,3/21/2021,4/30/2021,7/1/2021,8/6/2021,9/17/2021,10/3/2016
+EE-017,Felicia,Kellogg,Paula,Female,,Divorced,5/19/2018,EE-001,,,Sales,5,,,,,,,,,,,8000,8500,11000,15000,12000,8000,5600,1/5/2021,3/22/2021,5/1/2021,7/2/2021,8/7/2021,9/18/2021,10/4/2016
+EE-018,Barbra,Banton,Betty,Female,,Single,5/20/2018,EE-017,,,Sales,5,6/3/2021,,,,,,,,,,15000,10000,23000,12000,8000,15000,12000,1/6/2021,3/23/2021,5/2/2021,7/3/2021,8/8/2021,9/19/2021,10/5/2016
+EE-019,Saul,Denosen,Peter,Male,,Single,5/21/2018,EE-017,,,Sales,5,,,,,,,,,,,11000,12000,6000,8000,15000,8200,8000,1/7/2021,3/24/2021,5/3/2021,7/4/2021,8/9/2021,9/20/2021,10/6/2016
+EE-020,Leon,Williams,,Male,,Single,5/22/2018,EE-017,,,Sales,5,,,,,,,,,,,23000,8000,8500,9000,7500,6500,15000,1/8/2021,3/25/2021,5/4/2021,7/5/2021,8/10/2021,9/21/2021,10/7/2016
