@@ -1,6 +1,6 @@
-capstone_quiz_key_lesson_1.txt 84 11
-capstone_quiz_key_lesson_2.txt 84 9
-capstone_quiz_key_lesson_3.txt 83 8
-capstone_quiz_key_lesson_4.txt 82 11
-capstone_quiz_key_lesson_5.txt 83 9
-capstone_final_exam_key.txt 92 4
+CAPSTONE_QUIZ_KEY_LESSON_1.TXT 84 11
+CAPSTONE_QUIZ_KEY_LESSON_2.TXT 84 9
+CAPSTONE_QUIZ_KEY_LESSON_3.TXT 83 8
+CAPSTONE_QUIZ_KEY_LESSON_4.TXT 82 11
+CAPSTONE_QUIZ_KEY_LESSON_5.TXT 83 9
+CAPSTONE_FINAL_EXAM_KEY.TXT 92 4
