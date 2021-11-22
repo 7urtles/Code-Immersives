@@ -1,0 +1,58 @@
+body{
+    background-color: rgb(94, 94, 94);
+}
+
+main{
+    background-color: aliceblue;
+    width: 60%;
+    margin: auto;
+    position: relative;
+    top: 10vh;
+    padding-bottom: 4rem;
+}
+
+.title-wrapper{
+    text-align: center;
+    padding-top: 2rem;
+    text-decoration: underline;
+}
+
+.img-wrapper{
+    height: min-content;
+    width: min-content;
+}
+
+.img-wrapper img{
+    height: 200px;
+    width: auto;
+    margin-left: 3rem;
+    box-shadow: 5px 5px rgba(79, 79, 79, 0.283);
+    border-radius: 1rem;
+}
+
+.hobby-wrapper{
+    padding-top: 2.5rem;
+    margin-left: 2rem;
+
+}
+
+.hobby{
+    display: inline-flex;
+    margin-top: 1rem;
+}
+
+ul{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ol{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.footer-wrapper{
+    text-align: right;
+    margin-right: 3rem;
+    position: relative;
+    bottom: -3rem;
+    right: -1rem;
+}
