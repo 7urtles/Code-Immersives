@@ -1,0 +1,59 @@
+body{
+    background-color: rgba(152, 152, 152, 0.687);
+    margin: 0%;
+    padding: 0%;
+}
+
+header{
+    text-align: center;
+    background-color: aliceblue;
+    padding: 1rem;
+    width: 100%;
+}
+
+.form-container{
+    margin-top: 15rem;
+    border-radius: 1rem;
+    background-color: aliceblue;
+    padding: 3rem;
+    width: min-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-title{
+    font-size: large;
+    text-align: center;
+}
+
+.simple-form{
+    text-align: left;
+    width: min-content;
+}
+
+.simple-form input{
+    margin-bottom: 1rem;
+}
+
+.submit-button{
+    width: 100%;
+    height: 2rem;
+    border-radius: .2rem;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    background-color: aliceblue;
+    padding: 1rem;
+    width: 100%;
+}
+
+.search-box{
+    margin-top: 2rem;
+    text-align: center;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+}

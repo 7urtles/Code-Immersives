@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Using_Forms</title>
+</head>
+<body>
+    <header>
+        <h1>Working with Forms</h1>
+        <p>Taking input from users.</p>
+    </header>
+
+    <main>
+        <!-- Search form -->
+        <div class="search-box">
+            <form action="submit">
+
+                <input type="text" name="search" id="search" placeholder="Search">
+
+                <select name="search-provider" id="search-provider">
+                    <option value="google.com">Google</option>
+                    <option value="duckduckgo.com">DuckDuckGo</option>
+                    <option value="bing.com">Bing</option>
+                </select>
+
+                <button type="button" onclick="search_it()">Search</button>
+
+            </form>
+        </div>
+
+        <!-- Input Form -->
+        <div class="form-container">
+            <form action="submit" class="simple-form">
+                <div class="form-title">
+                    <strong>Register Account</strong>
+                    <br><br>
+                </div>
+
+                <div class='name-fields'>
+                    <label for="fname">First name:</label>
+                    <input type="text" name="fname" id="fname">
+                    <label for="lname">Last name:</label>
+                    <input type="text" name="lname" id="lname">
+                </div>
+    
+                <div class="email-field">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email">
+                </div>
+
+                <div class="password-field">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password">
+                </div>
+    
+                <button type="button" onclick="button_click()" class="submit-button" id="submit-button">Submit</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>Charles Parmley</p>
+        <p>Code Immersives 2021</p>
+    </footer>
+
+</body>
+</html>
+<script type='text/JavaScript' src="script.js"></script>
