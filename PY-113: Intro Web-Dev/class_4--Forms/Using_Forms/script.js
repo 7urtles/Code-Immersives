@@ -1,5 +1,6 @@
 console.log('running')
 
+// Account form submit button
 function button_click(){
     // Gathering user data
     var fname = document.getElementById('fname').value;
@@ -14,9 +15,13 @@ function button_click(){
     alert('Thank you ' + fname + '! Your submission has been recorded.')
 }
 
+
+// Search form submit button
 function search_it(){
     // Gathering search form data
     var search_data = document.getElementById('search').value
     var engine = document.getElementById('search-provider').value
+
+    // Open new window using search form data
     window.open('https://' + engine + '/search?q=' + search_data);
 }
