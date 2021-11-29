@@ -7,10 +7,16 @@
     <link rel="stylesheet" href="style.css">
     <title>Using_Forms</title>
 </head>
+
 <body>
     <header>
         <h1>Working with Forms</h1>
-        <p>Taking input from users.</p>
+        <nav>
+            <!-- Home link -->
+            <button onclick="home_link()" class="hover">Home</button>
+            <!-- Profile link -->
+            <button onclick="profile_link()" class="hover">View Profile</button>
+        </nav>
     </header>
 
     <main>
@@ -31,9 +37,11 @@
             </form>
         </div>
 
+ 
         <!-- Input Form -->
         <div class="form-container">
             <form action="submit" class="simple-form">
+
                 <div class="form-title">
                     <strong>Register Account</strong>
                     <br><br>

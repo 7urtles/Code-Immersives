@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Form Submit</title>
+</head>
+
+<body>
+    <header>
+        <h2 class="form-title">Here is what you submitted!</h2>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <h4 id="firstname">First Name: </h4>
+            <h4 id="lastname">Last Name: </h4>
+            <h4 id="email">Email: </h4>
+            <h4 id="password">Password: </h4>
+        </div>
+    </main>
+
+    <footer>
+        <p>Charles Parmley</p>
+        <p>Code Immersives 2021</p>
+    </footer>
+</body>
+
+<script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    let fname = urlParams.get('fname')
+    let lname = urlParams.get('lname')
+    let email = urlParams.get('email')
+    let password = urlParams.get('password')
+    document.getElementById('firstname').append(fname)
+    document.getElementById('lastname').append(lname)
+    document.getElementById('email').append(email)
+    document.getElementById('password').append(password)
+  </script>
+
+</html>
