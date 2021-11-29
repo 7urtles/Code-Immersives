@@ -37,7 +37,7 @@ document.getElementById('username').style.textShadow = '.5px .5px grey';
 // make an a tag
 let git_link = document.createElement('a');
 // setting it's link
-git_link.href = 'https://github.com/chparmley/Code-Immersives/tree/main/PY-113:%20Intro%20Web-Dev';
+git_link.href = 'https://github.com/chparmley/Code-Immersives/tree/main/PY-113:%20Intro%20Web-Dev/class_5--Javascript';
 // assign an ID
 git_link.id = 'github-link';
 // Set visible link text
