@@ -32,4 +32,11 @@ main{
 footer{
     background-color: aliceblue;
     width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
+}
+
+footer a{
+    color: rgb(5, 73, 100);
 }

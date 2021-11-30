@@ -13,7 +13,6 @@ function button_click(){
     window.open('form-submit.html?fname='+fname+'&lname='+lname+'&email='+email+'&password='+password);
 }
 
-
 // Search form submit button
 function search_it(){
     // Gathering search form data
@@ -24,12 +23,9 @@ function search_it(){
     window.open('https://' + engine + '/search?q=' + search_data);
 }
 
-
 // Profile link
 function profile_link(){
-    sleep(2000);
     window.open('my-profile.html',"_self");
-    sleep();
 }
 
 // Home link

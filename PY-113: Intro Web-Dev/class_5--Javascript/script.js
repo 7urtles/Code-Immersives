@@ -13,7 +13,7 @@ console.log(user)
 
 
 //if the username has not been set
-if (user['username']  === undefined){
+if (user['username'] === undefined){
 
     // Get a username from an alert popup
     user['username'] = window.prompt("Username:","chparmley");
@@ -21,6 +21,7 @@ if (user['username']  === undefined){
     // Save the data to a cooke  cookie formatting-->  "variable_name=data;"
     document.cookie = `username=${user["username"]};`
 }
+
 
 
 // -----------------[ Changing the DOM ]-----------------
