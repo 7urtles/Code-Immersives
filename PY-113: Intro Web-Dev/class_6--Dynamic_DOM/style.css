@@ -1,15 +1,30 @@
 body{
     margin: 0;
+    background-color: rgb(246, 155, 155);
 }
 header{
     text-align: center;
+    position: absolute;
+    top: 0;
+    width: 100vw;
 }
 main{
-    width: 50%;
+    width: 40%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 6rem;
+    margin-top: 12rem;
     text-align: center;
+}
+.button-wrapper{
+    text-align: left;
+    display: inline-block;
+    width: max-content;
+}
+#add-button, #remove-button{
+    width: max-content;
+    margin: .15rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 main ul{
     width: max-content;
