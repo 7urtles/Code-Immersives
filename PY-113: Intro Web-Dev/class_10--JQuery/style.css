@@ -1,3 +1,34 @@
+header{
+    text-align: center;
+}
+
 main{
+    margin: auto;
     margin-top: 6rem;
+}
+
+.content{
+    width: max-content;
+    margin: auto;
+    text-align: center;
+}
+.color-box{
+    margin: auto;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+.bottomless-scrollbox{
+    margin: auto;
+    width: 60vw;
+    height: 6rem;
+    text-align: center;
+    overflow: scroll;
+}
+.scrollbox-header{
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.post{
+    margin: 3rem;
 }

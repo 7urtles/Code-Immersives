@@ -19,11 +19,14 @@
 
     <main>
         <div class="content">
-            <button id="jq-listener">Click me!</button>
-            <p>(changes box color below)</p>
+            <button class="box-toggler">Hide box</button>
+            <div class='color-box' style="height: 3rem; width: 3rem; background-color: blue;"></div>
+            <button id="jq-listener">Change Color</button>
         </div>
-        <div class='color-box' style="margin-top: 2rem; height: 3rem; width: 3rem; background-color: blue;">
 
+        <h3 class="scrollbox-header">Bottomless Scroll</h3>
+        <div class="bottomless-scrollbox">
+            <p id="recurring-text" class="post">Post #1</p>
         </div>
     </main>
 
@@ -31,4 +34,5 @@
 </body>
 </html>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="script.js"></script>
+<script src="using_JQuery.js"></script>
+<script src="Bottomless_Scroll.js"></script>
