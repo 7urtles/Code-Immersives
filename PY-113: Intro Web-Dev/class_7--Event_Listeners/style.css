@@ -1,0 +1,13 @@
+.scroll-container{
+    height: 10rem;
+    width: 10rem;
+}
+body{
+    height: 120vh;
+    overflow: scroll;
+}
+#infinite-scroll{
+    height: 10rem;
+    margin-top: 5rem;
+    overflow: scroll;
+}
