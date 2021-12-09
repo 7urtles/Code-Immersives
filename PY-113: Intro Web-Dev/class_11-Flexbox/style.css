@@ -1,0 +1,36 @@
+body {
+    background-color: aliceblue;
+}
+.column {
+    float: left;
+    height: 300px;
+    margin: 1%;
+    border: 2px dashed black;
+    /* width: 300px; */
+    /* padding: 5px; */
+}
+.left, .right {
+    width: 21%;
+    background-color: slategray;
+}
+.middle {
+    width: 50%;
+    background-color: blueviolet;
+}
+
+@media only screen and (max-width: 620px) {
+    .middle {
+        background-color: red;
+    }
+    .right {
+        display: none;
+    }
+}
+@media only screen and (max-width: 420px) {
+    .middle {
+        background-color: green;
+    }
+    .left,.right {
+        display: none;
+    }
+}

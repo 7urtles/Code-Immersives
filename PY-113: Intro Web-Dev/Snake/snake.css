@@ -1,0 +1,30 @@
+body{
+    background-color: antiquewhite;
+}
+#board{
+    background-color: aliceblue;
+}
+.gameSquare{
+    height: 2rem;
+    width: 2rem;
+    background-color:gray;
+    margin: .5rem;
+}
+.goalSquare{
+    background-color: orange;
+}
+.snakeHead{
+    background-color: lightgreen;
+}
+.snakeBody{
+    background-color: darkgreen;
+}
+.scoreboard{
+    display: 'flex';
+    box-shadow: 5px 5px 5px black;
+    height: 6rem;
+    width: 25rem;
+    background-color: aliceblue;
+    margin: auto;
+    margin-top: 1rem;
+}
