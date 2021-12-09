@@ -20,8 +20,8 @@
 
 // -----[ Game Settings ]-----
 
-const height = 8
-const width = 8
+const height = 12
+const width = 12
 const boardSize = height * width
 let snakeDirection = 1
 let level = 1
@@ -40,8 +40,9 @@ let createSquare = () =>{
 // Builds the board using specified settings
 let createBoard = (boardSize) =>{
     const board = document.getElementById('board')
-    board.style.height = '25rem';
-    board.style.width = '25rem';
+    board.style.height = '14rem';
+    board.style.width = '14rem';
+    board.style.padding = '1rem'
     board.style.display = 'flex';
     board.style.flexDirection = 'row';
     board.style.flexWrap = 'wrap';
@@ -103,26 +104,28 @@ let moveSnake=(oldHead,newHead)=>{
     let snakeBody = document.getElementsByClassName('snakeBody')
 
     // for every section of the body
-    for(let i=0;i<=snakeBody.length;i++){
+    console.log(`Snake Length: ${snakeBody.length}`)
+    for(let i=0;i<snakeBody.length;i++){
         // save section to variable
         let section = snakeBody.item(i)
         // get the value of it's existing timer
         let timer = parseInt(section.getAttribute('value'))
 
-        // if the timer reaches zero
-        if(timer < 1){
-            // remove the counter from the sections html element
-            section.removeAttribute('value')
-            // remove the body from the html element
-            section.classList.remove('snakeBody')
-            // section.style.backgroundColor = 'gray'
-        }
+        
         // if there is still time on the timer
-        else{
+        if(timer > 0){
             // lower the timer by 1
             timer--
             // and update the section with the new timer value
             section.setAttribute('value', timer)
+        }
+        // if the timer reaches zero
+        else if(timer < 1){
+            console.log("Removing Tail")
+            // remove the counter from the sections html element
+            section.removeAttribute('value')
+            // remove the body from the html element
+            section.classList.remove('snakeBody')
         }
     }
     return
@@ -159,82 +162,99 @@ createScoreboard()
 // -----[ Game Runtime ]-----
 let runtime=()=>{
 
-    // -- Movement Listener --
-    $(document).keydown(function(event){
-        // goal location
-        let goal = document.getElementsByClassName('goalSquare')[0]
-        let goalLocation = goal.id
-
-        // location of snake head
-        let oldHead = document.getElementsByClassName('snakeHead')[0]
-        // ID from it's division
-        let location = parseInt(oldHead.id)
-        // initializing new location
-        let newLocation = '0'
-        
-
-        // [ KEY PRESSES ]
-        switch (event.which){
-            case 37: // LEFT
-                // find new location
-                    newLocation = String(parseInt(oldHead.id) - 1)
-                // grab division id of new location
-                newHead = document.getElementById(newLocation)
-                // check if the new location is within the boundries
-                if(parseInt(location) % width === 0){
-                    // if new location is out of bounds, do nothing
-                    return
-                }
-                break;
-
-
-            case 38: // UP
-                newLocation = String(parseInt(oldHead.id) - width)
-                newHead = document.getElementById(newLocation)
-                if(parseInt(newLocation) < 0){
-                    return
-                }
-                break;      
-
-                
-            case 39: // RIGHT
-                newLocation = String(parseInt(oldHead.id) + 1)
-                newHead = document.getElementById(newLocation)
-                if(parseInt(newLocation) % width === 0){
-                    return
-                }
-                break;
-
-
-            case 40: // DOWN
-                newLocation = String(parseInt(oldHead.id) + width)
-                newHead = document.getElementById(newLocation)
-                if(parseInt(newLocation) > boardSize-1){
-                    return
-                }
-                break;
-        }
-
-        // move the snake
-        moveSnake(oldHead,newHead)
-        // Checking if snake reached the goal
-        if (newLocation === goalLocation){
-            // remove the goal
-            goal.classList.remove('goalSquare')
-            // place a new one
-            createGoal(boardSize)
-            // enlarge snake by 1
-            growSnake()
-
-            console.log('GOAL!!')
-            updateScoreboard()
-
-        }
-    });
+    
     
 
 }
 
+
+// -- Movement Listener --
+$(document).keydown(function(event){
+    // goal location
+    let goal = document.getElementsByClassName('goalSquare')[0]
+    let goalLocation = goal.id
+
+    // location of snake head
+    let oldHead = document.getElementsByClassName('snakeHead')[0]
+    // ID from it's division
+    let location = parseInt(oldHead.id)
+    // initializing new location
+    let newLocation = '0'
+    
+
+    // [ KEY PRESSES ]
+    switch (event.which){
+        case 37: // LEFT
+            // find new location
+                newLocation = String(parseInt(oldHead.id) - 1)
+            // grab division id of new location
+            newHead = document.getElementById(newLocation)
+            // check if the new location is within the boundries
+            if(parseInt(location) % width === 0){
+                // if new location is out of bounds, do nothing
+                return
+            }
+            break;
+
+        case 38: // UP
+            newLocation = String(parseInt(oldHead.id) - width)
+            newHead = document.getElementById(newLocation)
+            if(parseInt(newLocation) < 0){
+                return
+            }
+            break;      
+          
+        case 39: // RIGHT
+            newLocation = String(parseInt(oldHead.id) + 1)
+            newHead = document.getElementById(newLocation)
+            if(parseInt(newLocation) % width === 0){
+                return
+            }
+            break;
+
+        case 40: // DOWN
+            newLocation = String(parseInt(oldHead.id) + width)
+            newHead = document.getElementById(newLocation)
+            if(parseInt(newLocation) > boardSize-1){
+                return
+            }
+            break;
+    }
+
+    // move the snake
+    moveSnake(oldHead,newHead)
+    // Checking if snake reached the goal
+    if (newLocation === goalLocation){
+        // remove the goal
+        goal.classList.remove('goalSquare')
+        // place a new one
+        createGoal(boardSize)
+        // enlarge snake by 1
+        growSnake()
+
+        console.log('GOAL!!')
+        updateScoreboard()
+
+    }
+
+// -----[ Redundant body timer checker ]-----
+let snakeBody = document.getElementsByClassName('snakeBody')
+console.log(`Snake Length: ${snakeBody.length}`)
+for(let i=0;i<snakeBody.length;i++){
+    let section = snakeBody.item(i)
+    let timer = parseInt(section.getAttribute('value'))
+    if(timer < 1){
+        console.log("Removing Tail")
+        section.removeAttribute('value')
+        section.classList.remove('snakeBody')
+    }
+    else{
+        section.setAttribute('value', timer)
+    }
+}
+
+
+});
 
 // Run Game
 runtime()

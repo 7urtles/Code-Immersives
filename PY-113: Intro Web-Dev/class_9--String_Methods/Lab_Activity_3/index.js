@@ -200,7 +200,7 @@ const acronymFunc = (param) => {
     // loop over words to be used in acronym
     for (i=0;i<splitParam.length;i++){
         // if its lowercase version is in the array
-        if(ignoreArray.indexOf(splitParam[i].toUpperCase()) > -1){
+        if(ignoreArray.indexOf(    splitParam[i].toUpperCase()    ) > -1){
             // remove it
             splitParam.splice(i,1)
             // and do not allow the counter to increase, since the array size decreased
