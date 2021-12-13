@@ -1,33 +1,94 @@
 body{
-    background-color: antiquewhite;
+    background-color: rgb(94, 93, 92);
+    font-family: 'Source Sans 3', sans-serif;
 }
 #board{
-    background-color: aliceblue;
+    background-color: rgb(195, 226, 254);
+    border-radius: .2rem;
+    display: flex;
+    flex-wrap: wrap;
 }
 .gameSquare{
+    border-radius: 1rem;
+    flex: 1 1 4.25%;
     height: 1rem;
-    width: 1rem;
-    background-color:rgb(61, 61, 61);
+    width: 2rem;
     margin: 1px;
-    border-radius: .2rem;
+    outline: 2px solid black;
+    transform: scale(.2);
+    /* background-color: rgb(96, 29, 29); */
+    /* box-shadow: 3px 3px 4px black; */
 }
 .goalSquare{
     background-color: orange;
+    border-radius: 1rem;
+    outline: 2px solid black;   
+    animation-name: grow;
+    animation-iteration-count: infinite;
+    animation-duration: 1s; 
 }
 .snakeHead{
-    background-color: lightgreen;
-    outline: 2px solid black;
+    background-color: rgb(12, 130, 12);
+    animation-name: wiggle;
+    animation-iteration-count: infinite;
+    animation-duration: .5s; 
+    border-radius: .2rem;
 }
 .snakeBody{
-    background-color: darkgreen;
+    background-color: rgb(12, 130, 12);
     outline: 2px solid black;
+    animation-name: wiggle;
+    animation-iteration-count: infinite;
+    animation-duration: .5s;
+    border-radius: .2rem;
 }
 .scoreboard{
     display: 'flex';
     box-shadow: 5px 5px 5px black;
-    height: 6rem;
-    width: 16rem;
+    height: max-content;
+    width: 10rem;
     background-color: aliceblue;
     margin: auto;
     margin-top: 1rem;
+    border-radius: .2rem;
+}
+#currentScore{
+    animation-name: score;
+    animation-duration: .5s;
+}
+#leaderboard{
+    height: 5rem;
+    width: 100%;
+    background-color: rgba(196, 196, 196, 0.473);
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+}
+.leaderScore{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: .5rem;
+    background-color: aliceblue;
+    border-radius: 5px;
+    height: min-content;
+    box-shadow: 5px 5px 5px black;
+}
+
+@keyframes wiggle {
+    0% { transform: scale(1); }
+    50% { transform: scale(.95); }
+    100% { transform: scale(1); }
+}
+@keyframes grow {
+    0% { transform: scale(.6); }
+    50% { transform: scale(.65); }
+    100% { transform: scale(.6); }
+}
+@keyframes score {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+    100% { transform: scale(1); }
 }

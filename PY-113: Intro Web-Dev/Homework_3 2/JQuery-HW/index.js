@@ -32,7 +32,7 @@ const commentFunc = () => {
     $('#scrollDiv').append(ptag)
     $('p').text("In magna migas chillwave, lo-fi banh mi bitters consectetur labore. DIY franzen velit offal vexillologist. Brunch yuccie mixtape, meggings sustainable ea jean shorts af iceland minim. Tousled snackwave vexillologist excepteur semiotics bushwick. XOXO minim seitan tbh adaptogen air plant mustache bicycle rights poke duis readymade yuccie magna iceland.")
 }
-for (let index = 0; index < 12; index++) {
+for (let index = 0; index < 4; index++) {
     commentFunc()
 }
 

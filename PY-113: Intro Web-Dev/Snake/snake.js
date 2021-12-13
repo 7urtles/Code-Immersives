@@ -1,30 +1,17 @@
-//  TODO
-
-// Create grid for game - DONE
-
-// Create goal square - DONE
-
-// Create snake head - DONE
-
-// Snake movement - DONE(Manual mode only)
-
-// Snake goal capture
-
-// Goal respawn
-
-// Snake growth
-
-// Multi-segment snake movement
-
-
-
 // -----[ Game Settings ]-----
-
-const height = 12
-const width = 12
+const size = 20
+const height = size
+const width = size
 const boardSize = height * width
-let snakeDirection = 1
+let movementDirection = 1
+let gameSpeed = 250 // Lower is faster?
 let level = 1
+const Http = new XMLHttpRequest();
+const url='http://charlesparmley.tech/scores';
+const urlPost='http://charlesparmley.tech/scoresUpdate';
+const goalSound= new Audio('http://charlesparmley.tech/Snake/goal.mp3')
+let highScore = 10
+let highScoreMinimum = 100
 
 
 //  -----[ Game Setup ]-----
@@ -33,19 +20,16 @@ let level = 1
 let createSquare = () =>{
     let square = document.createElement('div')
     square.classList.add('gameSquare')
-    square.style.boxShadow = '5px 5px 5px black'
     return square
 }
 
 // Builds the board using specified settings
 let createBoard = (boardSize) =>{
     const board = document.getElementById('board')
-    board.style.height = '14rem';
-    board.style.width = '14rem';
+    board.style.height = 'max-content';
+    board.style.width = `${size+3}rem`;
     board.style.padding = '1rem'
-    board.style.display = 'flex';
     board.style.flexDirection = 'row';
-    board.style.flexWrap = 'wrap';
     board.style.justifyContent = 'center';
     board.style.margin = 'auto';
     board.style.boxShadow = '5px 5px 5px black'
@@ -60,17 +44,18 @@ let createBoard = (boardSize) =>{
 
 // Places goal square on the board
 let createGoal = (boardSize) =>{
+    // picks a random square on the board
     const goal = Math.floor(Math.random() * boardSize)
     goalSquare = document.getElementById(goal)
+    // and now it is food
     goalSquare.classList.add('goalSquare')
 }
 
 // Creates the initial snake head node
-let createSnakeHead = (boardSize) =>{
-    const randomNumber = Math.floor(Math.random() * boardSize)
-    let snakeHead = document.getElementById(randomNumber)
+let createSnakeHead = () =>{
+    let snakeHead = document.getElementById(parseInt(boardSize*.5))
     snakeHead.classList.add('snakeHead')
-    return String(randomNumber)
+    return
 }
 
 // increase length of snake
@@ -88,15 +73,6 @@ let moveSnake=(oldHead,newHead)=>{
     // place body piece on old head location
     oldHead.classList.add('snakeBody')
 
-    // creating random rgb values
-    // let r = String(Math.floor(Math.random() * 255))
-    // let g = String(Math.floor(Math.random() * 255))
-    // let b = String(Math.floor(Math.random() * 255))
-    // console.log(r,g,b)
-
-    // assign random background
-    // oldHead.style.backgroundColor=`rgb(${r},${g},${b})`;
-
     // set the how long it will last using the 'level' setting as a timer starting number
     oldHead.setAttribute('value', level)
     
@@ -104,14 +80,11 @@ let moveSnake=(oldHead,newHead)=>{
     let snakeBody = document.getElementsByClassName('snakeBody')
 
     // for every section of the body
-    console.log(`Snake Length: ${snakeBody.length}`)
     for(let i=0;i<snakeBody.length;i++){
         // save section to variable
         let section = snakeBody.item(i)
         // get the value of it's existing timer
         let timer = parseInt(section.getAttribute('value'))
-
-        
         // if there is still time on the timer
         if(timer > 0){
             // lower the timer by 1
@@ -119,37 +92,146 @@ let moveSnake=(oldHead,newHead)=>{
             // and update the section with the new timer value
             section.setAttribute('value', timer)
         }
-        // if the timer reaches zero
-        else if(timer < 1){
-            console.log("Removing Tail")
-            // remove the counter from the sections html element
-            section.removeAttribute('value')
-            // remove the body from the html element
-            section.classList.remove('snakeBody')
-        }
     }
     return
 }
+//checking for collision with edge of map
+let collisionChecker=(newLocation,movementDirection)=>{
+    // look our location on the map
+    newLocation = parseInt(newLocation)
+    // On an edge piece, and moving away from map center, OR on a snake body piece
+    //      Then we have LOST
+    if((newLocation % width === 0 & movementDirection === 1) || ((newLocation+1) % width === 0 & movementDirection === -1) || newLocation > boardSize || newLocation < 0 || document.getElementById(String(newLocation)).classList.contains('snakeBody') === true){
+        // If score is in the top 3 scores
+        if((level-1) > highScoreMinimum){
+            // Prompt user to submit name to leaderboard
+            let userName = window.prompt('High Score! Enter Name!')
 
+            // Post request. If you are reading this, here is where you would cheat....
+            // Please don't. Doing so will delete valid high scores and I would rather not
+            //  put forth the effort to write a workaround... 
+            // Hope you have enjoyed so far!
+            console.log(userName)
+            if(userName != null){
+                $.ajax(urlPost, {
+                    type: 'POST',
+                    url: urlPost,
+                    dataType: "json",
+                    data: {
+                        user : userName,
+                        score : level-1
+                    },
+                    success: function(){
+                        // console.log('Success')
+                    },
+                    error: function(){
+                        // console.log('Failure')
+                    }
+                });
+            }
+        }
+        // Ask user to play again, and show their score.
+        if(confirm(`Score: ${level-1}    Play Again?`)===true){
+            // if user clicks to play again, reload the page
+            location.reload()
+        }
+        else{ 
+            // if the do not 'play again', 
+            //   returning true signals the parent loop to cancel
+            return true
+        }
+    }
+}
+
+// Create game scoreboard
 let createScoreboard =()=>{
-    // get board html element
-    let board = document.getElementById('scoreboard')
+    // create board html element
+    let scoreboard = document.createElement('div')
+    scoreboard.className = 'scoreboard'
+
     // add style for scoreboard
-    board.classList.add('scoreboard')
-    board.style.display = 'flex'
-    board.style.justifyContent = 'center'
+    scoreboard.classList.add('scoreboard')
+    scoreboard.style.display = 'flex'
+    scoreboard.style.justifyContent = 'center'
     // create score counter element
-    let scoreCounter = document.createElement('h1')
+    let scoreCounter = document.createElement('h2')
     // set counter to current level
-    scoreCounter.innerText = `Score: ${level}`
+    scoreCounter.innerText = `Score: ${level-1}`
     scoreCounter.id = 'currentScore'
     // add it to the DOM
-    board.appendChild(scoreCounter)
+    scoreboard.appendChild(scoreCounter)
+    board.appendChild(scoreboard)
 }
+
+// Create leaderboard
+let initialized = false
+let createLeaderboard=(data=[])=>{
+    // Check if this has already happened
+    if (initialized === true){
+        // if so, dont recreate the leaderboard
+        return
+    }
+    let parsedData = data
+    // if the data is not a js object
+    if(typeof(parsedData)!='object'){
+        // parse it into one
+        parsedData = JSON.parse(parsedData)
+    }
+
+    // I don't remember why I did this....
+    // Why would it matter if the data was longer than 30 or less than one?
+    // If leaderboard gets weird ------!!! BUG HERE !!!-----
+    // if(parsedData.length>30 || data.length < 1){
+    //     return
+    // }
+
+
+    let leadearboard = document.getElementById('leaderboard')
+    // loop over leaderboard data
+    for(i=0;i<parsedData.length;i++){
+        // create a div for each one
+        let userScore = document.createElement('div')
+        userScore.className = 'leaderScore'
+
+        // finding the minimum high score needed for leaderboard
+        //    again, no cheating please. I'll emojify this whole thing
+        if(parsedData[i].score < highScoreMinimum){
+            highScoreMinimum = parsedData[i].score
+        }
+
+        // Grabbing user data from data supplied
+        username = parsedData[i].user
+        score = parsedData[i].score
+
+        // Giving their respective elements identifying attributtes
+        userScore.id = parsedData[i].user
+        userScore.setAttribute('value', parsedData[i].score)
+
+        // creating element and giving it the username and score
+        let scoreText = document.createElement('p')
+        scoreText.innerText = `${username}: ${score}`
+
+        // flatten the elements to the leaderboard
+        userScore.appendChild(scoreText)
+        leadearboard.appendChild(userScore)
+    }
+
+    
+    // loop a dictionary of scores kept in a local json file,
+    // use the data per username to display high scores
+    initialized = true
+}
+
+
+
+// Updates scoreboard value when needed    Example: snake reaches food piece
 let updateScoreboard =()=>{
     let currentScore = document.getElementById('currentScore')
-    currentScore.innerText = `Score: ${level}`
+    currentScore.innerText = `Score: ${level-1}`
+    board.removeChild(board.lastChild);
+    createScoreboard()
 }
+
 
 // Run setup functions
 createBoard(boardSize)
@@ -160,101 +242,112 @@ createScoreboard()
 
 
 // -----[ Game Runtime ]-----
-let runtime=()=>{
+runtime=()=>{
+    // check the current date down to the millisecond, minus the gamespeed (also milliseconds)
+    let expected = Date.now() - gameSpeed;
+    setTimeout(tick, gameSpeed);
+    function tick() {
 
-    
-    
+        let dt = Date.now() - expected; // the drift (positive for overshooting)
+        if (dt > gameSpeed) {
+            // if more time has occurred than specified by gamespeed
+        }
 
+        // -----[ Game Main Loop ]-----
+        // goal location
+        let goal = document.getElementsByClassName('goalSquare')[0]
+        let goalLocation = goal.id
+
+        // location of snake head
+        let oldHead = document.getElementsByClassName('snakeHead')[0]
+        // ID from it's division
+        let location = parseInt(oldHead.id)
+        // initializing new location
+        let newLocation = '0'
+
+        // find new location
+        newLocation = String(parseInt(oldHead.id) + movementDirection)
+        // grab division id of new location
+        newHead = document.getElementById(newLocation)
+
+        // Check for wall collision
+        if (collisionChecker(newLocation,movementDirection)===true){
+            return
+        }
+
+        // Move the snake
+        moveSnake(oldHead,newHead)
+
+
+        // Without this, snake poops sometimes. And they are literally deadly
+        // Checks if any snakeBody elements have a value of '0'
+        // If so remove the class snakeBody from it
+        let snakeBody = document.getElementsByClassName('snakeBody')
+        for(let i=0;i<snakeBody.length;i++){
+            let section = snakeBody.item(i)
+            let timer = parseInt(section.getAttribute('value'))
+            if(timer < 1){
+                section.removeAttribute('value')
+                section.classList.remove('snakeBody')
+                section.classList.remove('snakeTail')
+                section.classList.remove('right','left','up','down')
+            }
+        }
+        // If reached a food piece square
+        if (newLocation === goalLocation){
+            goalSound.play()
+            // remove the goal
+            goal.classList.remove('goalSquare')
+            // place a new one
+            createGoal(boardSize)
+            // enlarge snake by 1
+            growSnake()
+            // update html scoreboard DOM element
+            updateScoreboard()
+            // increace framerate by decreasing delay between snake movements
+            gameSpeed = gameSpeed*.9 // multiplying by .9 increases the game speed by 10%
+        }
+
+        // Set time when next game tick is allowed
+        expected += gameSpeed;
+
+        // IDK yet, still tyring to understand
+        setTimeout(tick, Math.max(0, gameSpeed - dt)); // take into account drift
+    }
 }
 
 
 // -- Movement Listener --
 $(document).keydown(function(event){
-    // goal location
-    let goal = document.getElementsByClassName('goalSquare')[0]
-    let goalLocation = goal.id
-
-    // location of snake head
-    let oldHead = document.getElementsByClassName('snakeHead')[0]
-    // ID from it's division
-    let location = parseInt(oldHead.id)
-    // initializing new location
-    let newLocation = '0'
-    
-
     // [ KEY PRESSES ]
     switch (event.which){
         case 37: // LEFT
-            // find new location
-                newLocation = String(parseInt(oldHead.id) - 1)
-            // grab division id of new location
-            newHead = document.getElementById(newLocation)
-            // check if the new location is within the boundries
-            if(parseInt(location) % width === 0){
-                // if new location is out of bounds, do nothing
-                return
-            }
+            movementDirection = -1
             break;
 
         case 38: // UP
-            newLocation = String(parseInt(oldHead.id) - width)
-            newHead = document.getElementById(newLocation)
-            if(parseInt(newLocation) < 0){
-                return
-            }
+            movementDirection = -width
             break;      
           
         case 39: // RIGHT
-            newLocation = String(parseInt(oldHead.id) + 1)
-            newHead = document.getElementById(newLocation)
-            if(parseInt(newLocation) % width === 0){
-                return
-            }
+            movementDirection = 1
             break;
 
         case 40: // DOWN
-            newLocation = String(parseInt(oldHead.id) + width)
-            newHead = document.getElementById(newLocation)
-            if(parseInt(newLocation) > boardSize-1){
-                return
-            }
+            movementDirection = width
             break;
     }
+});
 
-    // move the snake
-    moveSnake(oldHead,newHead)
-    // Checking if snake reached the goal
-    if (newLocation === goalLocation){
-        // remove the goal
-        goal.classList.remove('goalSquare')
-        // place a new one
-        createGoal(boardSize)
-        // enlarge snake by 1
-        growSnake()
+Http.open("GET", url);
+Http.send();
 
-        console.log('GOAL!!')
-        updateScoreboard()
-
-    }
-
-// -----[ Redundant body timer checker ]-----
-let snakeBody = document.getElementsByClassName('snakeBody')
-console.log(`Snake Length: ${snakeBody.length}`)
-for(let i=0;i<snakeBody.length;i++){
-    let section = snakeBody.item(i)
-    let timer = parseInt(section.getAttribute('value'))
-    if(timer < 1){
-        console.log("Removing Tail")
-        section.removeAttribute('value')
-        section.classList.remove('snakeBody')
-    }
-    else{
-        section.setAttribute('value', timer)
-    }
+Http.onreadystatechange = (e) => {
+    const data = Http.response 
+    createLeaderboard(data)
 }
 
 
-});
-
+  
 // Run Game
 runtime()
