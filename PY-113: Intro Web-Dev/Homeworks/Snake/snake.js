@@ -325,7 +325,7 @@ let splashScreen=()=>{
     gitImage.id = 'gitImage'
     $(gitImage).attr('src', 'resources/github.png')
     let gitLink = document.createElement('a')
-    $(gitLink).attr('href', 'https://github.com/chparmley/Code-Immersives/tree/main/PY-113:%20Intro%20Web-Dev/Snake')
+    $(gitLink).attr('href', 'https://github.com/chparmley/Snake')
     $(gitLink).append(gitImage)
     $(gitContainer).append(gitLink)
 
