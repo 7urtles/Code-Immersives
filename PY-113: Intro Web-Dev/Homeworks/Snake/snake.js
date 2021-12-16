@@ -326,6 +326,7 @@ let splashScreen=()=>{
     $(gitImage).attr('src', 'resources/github.png')
     let gitLink = document.createElement('a')
     $(gitLink).attr('href', 'https://github.com/chparmley/Snake')
+    $(gitLink).attr('target', '_blank')
     $(gitLink).append(gitImage)
     $(gitContainer).append(gitLink)
 
