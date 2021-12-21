@@ -1,0 +1,16 @@
+#homeContainer{
+    align-items: center;
+    justify-content: center;
+}
+#resumeTitle{
+    margin-top: 4rem;
+}
+#aboutPage{
+   margin-top: 4rem;
+}
+#python{
+    color: rgb(7,194,125);
+}
+#sql{
+    color: rgb(36,112,190);
+}

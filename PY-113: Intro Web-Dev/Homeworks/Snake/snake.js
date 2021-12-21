@@ -174,7 +174,7 @@ let createScoreboard =()=>{
     // add it to the DOM
     scoreboard.appendChild(scoreCounter)
     try{
-        $('.scoreboard').remove()
+        $('#scoreboard').remove()
     }
     catch{
 
@@ -196,12 +196,7 @@ let createLeaderboard=(data=[])=>{
         parsedData = JSON.parse(parsedData)
     }
 
-    // I don't remember why I did this.... Delete if still not used after Dec 16
-    // Why would it matter if the data was longer than 30 or shorter than one?
-    // If leaderboard gets weird ------!!! BUG HERE !!!-----
-    // if(parsedData.length>30 || data.length < 1){
-    //     return
-    // }
+
     let leaderboardTitle = document.createElement('h1')
     leaderboardTitle.id = 'leaderboardTitle'
     $(leaderboardTitle).text('High Scores')
@@ -357,8 +352,9 @@ let playAgain=()=>{
         showSplash = false
         // if user clicks to play again, reload the page
         $('#board').html('')
-        $('#leaderboard').remove('')
+        $('#leaderboard').remove()
         $('#leaderboardTitle').remove()
+        $('#scoreboard').remove()
         music.play()
     })
 
@@ -463,7 +459,12 @@ runtime=()=>{
             }
 
             // Move the snake
-            moveSnake(oldHead,newHead)
+            try{
+                moveSnake(oldHead,newHead)
+            }
+            catch{
+                
+            }
 
 
             // Without this, snake poops sometimes. And they are literally deadly
@@ -529,7 +530,11 @@ $(document).keydown(function(event){
             break;
     }
 });
-
+window.addEventListener("keydown", function(e) {
+    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+}, false);
 // Run Game
 splashScreen(runGame)
 runtime(runGame)
