@@ -1,0 +1,513 @@
+fn,ln,mi,gender,sg,salary,dept,hiredate,termdate,deptCode,deptName
+Jacob,ROSALES,,M,2,54720,PUB,2018-10-13,,PUB,Public Relations
+Ryan,ROBINSON,A,M,3,93952,PUB,2018-10-12,,PUB,Public Relations
+Jerry,BARRERA,P,M,3,75908,PUB,2018-09-19,,PUB,Public Relations
+Tyler,FRANKLIN,J,M,3,86583,PUB,2018-08-03,,PUB,Public Relations
+Ethan,GILBERT,,M,3,79105,PUB,2018-07-16,,PUB,Public Relations
+Jonathan,CURRY,F,M,1,40348,PUB,2018-07-06,,PUB,Public Relations
+Jose,WYATT,,M,1,36555,PUB,2018-05-26,,PUB,Public Relations
+Frances,SHAW,A,F,3,78627,PUB,2018-05-25,,PUB,Public Relations
+Virginia,WELLS,F,F,3,75454,PUB,2018-04-08,,PUB,Public Relations
+Joshua,MCGUIRE,G,M,1,25175,PUB,2018-01-31,,PUB,Public Relations
+Diana,FUENTES,F,F,3,88594,PUB,2017-11-29,,PUB,Public Relations
+Jesse,LE,F,M,5,145181,PUB,2017-11-09,,PUB,Public Relations
+Alan,JAMES,F,M,1,34064,PUB,2017-11-01,,PUB,Public Relations
+Brandon,GROSS,F,M,2,43744,PUB,2017-09-18,,PUB,Public Relations
+Joseph,BALL,A,M,1,38818,PUB,2017-09-06,,PUB,Public Relations
+Edward,CHAN,,M,1,32513,PUB,2017-08-07,,PUB,Public Relations
+Benjamin,YORK,G,M,3,75871,PUB,2017-06-12,,PUB,Public Relations
+Carol,HOPKINS,,F,3,79568,PUB,2017-06-09,,PUB,Public Relations
+Philip,DECKER,,M,1,28461,PUB,2017-04-23,,PUB,Public Relations
+Theresa,SCHMIDT,,F,1,35137,PUB,2017-03-27,,PUB,Public Relations
+Kayla,SPENCER,F,F,5,131768,PUB,2017-03-05,,PUB,Public Relations
+Nancy,GONZALES,F,F,3,68313,PUB,2017-02-05,,PUB,Public Relations
+Shirley,LOWE,,F,2,37865,PUB,2017-01-19,,PUB,Public Relations
+Robert,MELENDEZ,A,M,3,76109,PUB,2017-01-19,,PUB,Public Relations
+Brian,HARTMAN,,M,5,133390,PUB,2016-12-26,,PUB,Public Relations
+Lawrence,GUERRA,,M,2,56471,PUB,2016-12-21,,PUB,Public Relations
+Zachary,LYNCH,J,M,1,25613,PUB,2016-09-26,,PUB,Public Relations
+Terry,CISNEROS,F,M,3,70288,PUB,2016-08-18,,PUB,Public Relations
+Logan,BANKS,,M,3,84847,PUB,2016-08-12,,PUB,Public Relations
+Ralph,LUCAS,,M,1,31509,PUB,2016-07-09,,PUB,Public Relations
+Donna,HAMILTON,F,F,3,89784,PUB,2016-06-24,,PUB,Public Relations
+Laura,BRYANT,P,F,3,71972,PUB,2016-05-31,,PUB,Public Relations
+Gregory,WHEELER,,M,3,66120,PUB,2016-01-03,,PUB,Public Relations
+Marilyn,FERGUSON,,F,2,62321,PUB,2015-12-29,,PUB,Public Relations
+Jeremy,BONILLA,P,M,4,104643,PUB,2015-12-26,,PUB,Public Relations
+Wayne,MAXWELL,J,M,2,62797,PUB,2015-12-21,,PUB,Public Relations
+Gabriel,GRAY,,M,2,44651,PUB,2015-11-18,,PUB,Public Relations
+Raymond,HARPER,,M,2,49376,PUB,2015-10-31,,PUB,Public Relations
+Thomas,RODRIGUEZ,J,M,3,67701,PUB,2015-10-23,,PUB,Public Relations
+Henry,TURNER,W,M,3,71377,PUB,2015-08-28,,PUB,Public Relations
+Jacob,WALKER,,M,3,81868,PUB,2015-08-21,,PUB,Public Relations
+Stephen,WRIGHT,W,M,3,79853,PUB,2015-06-03,,PUB,Public Relations
+Jean,BUSH,,F,7,3X509820,PUB,2015-05-24,,PUB,Public Relations
+Russell,PATEL,J,M,2,44919,PUB,2015-03-16,,PUB,Public Relations
+Amanda,WALLACE,G,F,7,3X580658,PUB,2015-02-03,,PUB,Public Relations
+Roy,MENDOZA,,M,2,64788,PUB,2015-02-02,,PUB,Public Relations
+Paul,TAYLOR,,M,3,75100,PUB,2015-01-04,,PUB,Public Relations
+Russell,CLAYTON,,M,5,117495,PUB,2015-01-03,,PUB,Public Relations
+Robert,BUCHANAN,,M,2,58999,PUB,2014-12-18,,PUB,Public Relations
+Noah,HOLLOWAY,G,M,3,65698,PUB,2014-12-13,,PUB,Public Relations
+Walter,REYES,,M,7,3X639268,PUB,2014-11-10,,PUB,Public Relations
+Evelyn,BARKER,G,F,6,3X408885,PUB,2014-07-30,,PUB,Public Relations
+Julia,FOX,A,F,5,140502,PUB,2014-05-10,,PUB,Public Relations
+Henry,BURNETT,,M,5,142978,PUB,2014-03-13,,PUB,Public Relations
+Noah,FRANCO,F,M,5,130802,PUB,2014-02-13,,PUB,Public Relations
+Nathan,YU,J,M,7,3X546437,PUB,2013-08-22,,PUB,Public Relations
+Sandra,FIGUEROA,,F,4,98506,PUB,2013-06-26,,PUB,Public Relations
+Gary,YOUNG,G,M,4,114727,PUB,2013-06-24,,PUB,Public Relations
+Patricia,JENKINS,J,F,4,96648,PUB,2013-06-22,,PUB,Public Relations
+Timothy,PENA,P,M,4,108039,PUB,2012-08-09,,PUB,Public Relations
+Kevin,THOMPSON,A,M,5,137221,PUB,2012-07-15,,PUB,Public Relations
+Sean,SHIELDS,,M,6,3X408951,PUB,2011-02-21,,PUB,Public Relations
+Jacob,CARPENTER,,M,4,97033,PUB,2010-01-17,,PUB,Public Relations
+Bruce,WATSON,P,M,4,100884,PUB,2009-12-30,,PUB,Public Relations
+Billy,HOOVER,A,M,6,3X499757,PUB,2008-11-02,,PUB,Public Relations
+Betty,SIMMONS,W,F,6,3X406299,PUB,2008-05-22,,PUB,Public Relations
+Michelle,STANLEY,,F,6,3X414538,PUB,2006-12-12,,PUB,Public Relations
+Anthony,WILSON,,M,6,3X499214,PUB,2006-09-18,,PUB,Public Relations
+Gerald,WILLIAMSON,F,M,7,3X699760,PUB,2006-07-15,,PUB,Public Relations
+Anna,MURRAY,,F,6,3X494360,PUB,2006-05-06,,PUB,Public Relations
+Megan,HORTON,F,F,7,3X643772,PUB,2006-01-08,,PUB,Public Relations
+Kimberly,ALEXANDER,F,F,7,3X532531,PUB,2005-03-03,,PUB,Public Relations
+Kyle,WU,A,M,6,3X410521,PUB,2004-11-06,,PUB,Public Relations
+Daniel,DUNCAN,J,M,6,3X490762,PUB,2004-10-16,,PUB,Public Relations
+Rose,RYAN,,F,6,3X411237,PUB,2004-06-10,,PUB,Public Relations
+Jane,HIGGINS,,F,7,3X535835,PUB,2003-08-09,,PUB,Public Relations
+Olivia,LEON,,F,7,3X550152,PUB,2003-07-02,,PUB,Public Relations
+Hannah,LYONS,,F,6,3X405988,PUB,2003-01-16,,PUB,Public Relations
+Bruce,HAMMOND,,M,7,3X661149,PUB,2002-12-29,,PUB,Public Relations
+Raymond,ABBOTT,,M,7,3X654139,PUB,2002-12-28,,PUB,Public Relations
+Ronald,SANCHEZ,,M,7,3X582094,PUB,2002-08-15,,PUB,Public Relations
+Richard,HART,,M,1,26291,PROJ,2018-11-07,,PROJ,Project Management
+Ann,GRAVES,F,F,3,55463,PROJ,2018-10-02,,PROJ,Project Management
+Alexander,TAPIA,A,M,3,89601,PROJ,2018-09-01,,PROJ,Project Management
+Jeffrey,LINDSEY,,M,2,59630,PROJ,2018-07-12,,PROJ,Project Management
+Andrea,MILES,,F,1,32487,PROJ,2018-06-21,,PROJ,Project Management
+Bryan,WARD,J,M,2,47707,PROJ,2018-05-29,,PROJ,Project Management
+Elizabeth,SULLIVAN,,F,1,34501,PROJ,2018-05-27,,PROJ,Project Management
+Arthur,NASH,J,M,3,97878,PROJ,2018-05-19,,PROJ,Project Management
+Keith,MALONE,W,M,3,72579,PROJ,2018-02-02,,PROJ,Project Management
+Andrew,ALVARADO,,M,2,50037,PROJ,2017-12-27,,PROJ,Project Management
+Alan,WISE,P,M,4,103755,PROJ,2017-12-03,,PROJ,Project Management
+Noah,BOYER,F,M,2,51120,PROJ,2017-10-08,,PROJ,Project Management
+Noah,RAMOS,F,M,1,35210,PROJ,2017-09-13,,PROJ,Project Management
+Judith,HALE,W,F,4,95843,PROJ,2017-08-16,,PROJ,Project Management
+Larry,MARSH,F,M,5,139594,PROJ,2017-08-02,,PROJ,Project Management
+Ryan,FITZGERALD,,M,5,147559,PROJ,2017-05-03,,PROJ,Project Management
+Bruce,ARIAS,,M,1,29526,PROJ,2017-04-13,,PROJ,Project Management
+Jessica,PEARSON,,F,2,45306,PROJ,2017-03-11,,PROJ,Project Management
+Jesse,GARRISON,G,M,2,44124,PROJ,2017-03-01,,PROJ,Project Management
+Jeffrey,RICHARD,,M,2,47003,PROJ,2016-12-29,,PROJ,Project Management
+James,AGUIRRE,,M,3,79153,PROJ,2016-10-17,,PROJ,Project Management
+Cynthia,GIBSON,F,F,3,70454,PROJ,2016-09-13,,PROJ,Project Management
+Paul,BAUER,,M,5,138637,PROJ,2016-08-29,,PROJ,Project Management
+Jose,WEBSTER,J,M,3,84499,PROJ,2016-06-01,,PROJ,Project Management
+Wayne,HUGHES,J,M,4,114492,PROJ,2016-05-01,,PROJ,Project Management
+Michael,POOLE,P,M,3,78258,PROJ,2016-02-14,,PROJ,Project Management
+Aaron,FARRELL,,M,1,24971,PROJ,2016-01-28,,PROJ,Project Management
+Frank,PRATT,,M,3,94440,PROJ,2016-01-24,,PROJ,Project Management
+Judith,MENDEZ,P,F,1,21875,PROJ,2016-01-03,,PROJ,Project Management
+Nicole,GREGORY,,F,6,3X489762,PROJ,2015-12-16,,PROJ,Project Management
+Helen,CRAIG,W,F,2,46889,PROJ,2015-10-27,,PROJ,Project Management
+Mark,LANE,,M,1,35626,PROJ,2015-07-26,,PROJ,Project Management
+Nathan,DELACRUZ,,M,6,3X534894,PROJ,2015-07-23,,PROJ,Project Management
+Philip,SCHULTZ,,M,3,91417,PROJ,2015-07-08,,PROJ,Project Management
+Carolyn,DURAN,,F,2,41457,PROJ,2015-06-02,,PROJ,Project Management
+Vincent,WHITAKER,,M,5,3X484226,PROJ,2015-04-22,,PROJ,Project Management
+Frank,VINCENT,A,M,2,67128,PROJ,2015-02-14,,PROJ,Project Management
+Jason,POPE,,M,2,62377,PROJ,2015-01-27,,PROJ,Project Management
+Billy,RICHARDSON,J,M,3,84120,PROJ,2015-01-26,,PROJ,Project Management
+Mark,THOMAS,F,M,5,130020,PROJ,2014-11-27,,PROJ,Project Management
+Brandon,ZAMORA,,M,6,3X410395,PROJ,2014-10-06,,PROJ,Project Management
+Andrew,PITTMAN,,M,5,115423,PROJ,2014-09-01,,PROJ,Project Management
+Alice,THORNTON,P,F,7,3X561762,PROJ,2014-08-12,,PROJ,Project Management
+Ethan,ORTIZ,J,M,5,139726,PROJ,2014-07-31,,PROJ,Project Management
+Nicholas,SPARKS,F,M,7,3X559967,PROJ,2014-07-12,,PROJ,Project Management
+Gerald,ZAVALA,J,M,5,132100,PROJ,2014-06-09,,PROJ,Project Management
+Johnny,COLLIER,W,M,5,116380,PROJ,2014-06-02,,PROJ,Project Management
+Joshua,CALDERON,,M,4,104722,PROJ,2014-05-22,,PROJ,Project Management
+Amy,MEDINA,F,F,4,110471,PROJ,2014-01-27,,PROJ,Project Management
+Rachel,WATTS,,F,5,129828,PROJ,2013-12-29,,PROJ,Project Management
+Christine,RHODES,F,F,4,91849,PROJ,2013-12-03,,PROJ,Project Management
+Richard,IBARRA,F,M,4,109345,PROJ,2013-10-19,,PROJ,Project Management
+Ralph,GALLEGOS,,M,6,3X410458,PROJ,2013-08-26,,PROJ,Project Management
+Kathleen,BYRD,A,F,5,129607,PROJ,2013-06-07,,PROJ,Project Management
+David,BARBER,G,M,7,3X634622,PROJ,2013-05-17,,PROJ,Project Management
+Donald,GIBBS,F,M,6,3X407858,PROJ,2013-02-17,,PROJ,Project Management
+Brandon,WATKINS,F,M,5,144149,PROJ,2013-01-10,,PROJ,Project Management
+Gary,MCCORMICK,W,M,6,3X418672,PROJ,2012-09-18,,PROJ,Project Management
+Carl,MATHEWS,A,M,4,94318,PROJ,2012-03-06,,PROJ,Project Management
+Willie,SHORT,,M,5,143999,PROJ,2012-03-04,,PROJ,Project Management
+Logan,HOUSTON,,M,4,94920,PROJ,2012-02-25,,PROJ,Project Management
+Brian,COMBS,,M,7,3X623265,PROJ,2012-02-07,,PROJ,Project Management
+Michael,BROWN,J,M,7,3X646818,PROJ,2012-01-20,,PROJ,Project Management
+Gloria,WARNER,,F,5,113515,PROJ,2011-10-21,,PROJ,Project Management
+Julie,GUZMAN,P,F,5,104220,PROJ,2010-11-21,,PROJ,Project Management
+Terry,HUBBARD,J,M,4,113219,PROJ,2010-08-07,,PROJ,Project Management
+Joseph,BRADLEY,W,M,7,3X551788,PROJ,2010-07-26,,PROJ,Project Management
+Joshua,DELGADO,J,M,4,107209,PROJ,2010-06-04,,PROJ,Project Management
+Willie,WANG,J,M,7,3X547784,PROJ,2010-04-23,,PROJ,Project Management
+Karen,BARNES,A,F,7,3X594608,PROJ,2009-03-10,,PROJ,Project Management
+Patrick,ALLISON,G,M,6,3X427516,PROJ,2008-05-30,,PROJ,Project Management
+Stephen,YATES,,M,7,3X641047,PROJ,2008-04-29,,PROJ,Project Management
+Willie,BROOKS,,M,6,3X537518,PROJ,2006-07-07,,PROJ,Project Management
+Albert,ROWE,,M,6,3X406159,PROJ,2005-07-06,,PROJ,Project Management
+Eugene,PRICE,,M,7,3X540688,PROJ,2004-08-10,,PROJ,Project Management
+David,SANTOS,,M,7,3X572656,PROJ,2004-05-04,,PROJ,Project Management
+Diana,GARDNER,,F,6,3X403337,PROJ,2003-09-30,,PROJ,Project Management
+Russell,NORMAN,,M,7,3X569166,PROJ,2003-04-04,,PROJ,Project Management
+Stephen,GEORGE,F,M,3,67477,HR,2018-12-30,,HR,Human resourses
+Ronald,MATTHEWS,G,M,3,74160,HR,2018-11-14,,HR,Human resourses
+Arthur,SHERMAN,J,M,2,50817,HR,2018-10-11,,HR,Human resourses
+Randy,PADILLA,A,M,3,73288,HR,2018-09-10,,HR,Human resourses
+Nathan,BAUTISTA,,M,1,26193,HR,2018-03-24,,HR,Human resourses
+Patricia,ACOSTA,,F,2,58475,HR,2018-03-05,,HR,Human resourses
+Alexander,LARSON,A,M,3,74324,HR,2017-12-28,,HR,Human resourses
+Jean,PALMER,P,F,2,64211,HR,2017-11-25,,HR,Human resourses
+Timothy,KHAN,G,M,1,34279,HR,2017-10-19,,HR,Human resourses
+Tyler,CAIN,W,M,1,31714,HR,2017-10-14,,HR,Human resourses
+Christian,ESPINOZA,G,M,4,103330,HR,2017-10-06,,HR,Human resourses
+Paul,OCONNOR,W,M,4,119862,HR,2017-08-18,,HR,Human resourses
+Austin,CHOI,,M,4,114045,HR,2017-06-10,,HR,Human resourses
+Jason,RICHARDS,J,M,3,72776,HR,2017-04-27,,HR,Human resourses
+Carl,MORALES,P,M,2,66422,HR,2017-04-23,,HR,Human resourses
+Bradley,JIMENEZ,G,M,1,30748,HR,2017-04-06,,HR,Human resourses
+Joseph,OCHOA,G,M,3,71872,HR,2017-03-18,,HR,Human resourses
+Kyle,LAMB,,M,3,79420,HR,2017-03-09,,HR,Human resourses
+Ralph,BENNETT,W,M,3,91968,HR,2017-01-21,,HR,Human resourses
+Brittany,KLEIN,P,F,3,67162,HR,2017-01-01,,HR,Human resourses
+Kenneth,ESCOBAR,W,M,1,36894,HR,2016-12-06,,HR,Human resourses
+Julie,PARKS,G,F,4,103276,HR,2016-12-04,,HR,Human resourses
+Samuel,BAKER,,M,5,3X482237,HR,2016-11-27,,HR,Human resourses
+Gloria,ROBERTSON,P,F,3,62268,HR,2016-11-25,,HR,Human resourses
+Joe,HOWARD,A,M,2,67079,HR,2016-11-21,,HR,Human resourses
+Laura,BECK,,F,1,25937,HR,2016-11-16,,HR,Human resourses
+Jordan,TOWNSEND,G,M,3,69403,HR,2016-11-15,,HR,Human resourses
+Mark,HOOD,P,M,3,72565,HR,2016-09-27,,HR,Human resourses
+Logan,LOGAN,,M,3,83541,HR,2016-07-22,,HR,Human resourses
+Jennifer,PERRY,G,F,3,67427,HR,2016-07-11,,HR,Human resourses
+Christian,PETERSON,,M,1,39196,HR,2016-06-27,,HR,Human resourses
+Jeremy,MURPHY,P,M,4,90562,HR,2016-06-13,,HR,Human resourses
+Johnny,FRANK,,M,3,78207,HR,2016-05-18,,HR,Human resourses
+Adam,SANTANA,W,M,4,93143,HR,2016-04-02,,HR,Human resourses
+Elizabeth,HOLLAND,A,F,5,126903,HR,2016-03-30,,HR,Human resourses
+Nicole,MARSHALL,J,F,2,43113,HR,2016-03-16,,HR,Human resourses
+Bradley,MEJIA,J,M,2,40708,HR,2016-02-07,,HR,Human resourses
+Nathan,OBRIEN,P,M,1,44283,HR,2016-01-05,,HR,Human resourses
+Randy,CARSON,,M,1,31974,HR,2015-12-18,,HR,Human resourses
+Richard,MILLER,F,M,1,35590,HR,2015-12-17,,HR,Human resourses
+Madison,WILTON,W,F,1,$77582,HR,2015-11-22,,HR,Human resourses
+Edward,FRENCH,F,M,2,56507,HR,2015-08-03,,HR,Human resourses
+Jordan,CHAVEZ,W,M,1,25462,HR,2015-06-19,,HR,Human resourses
+Kevin,MUELLER,W,M,2,64176,HR,2015-06-03,,HR,Human resourses
+Martha,SNYDER,,F,6,3X407007,HR,2015-05-28,,HR,Human resourses
+Ralph,MEYERS,P,M,3,86742,HR,2015-05-23,,HR,Human resourses
+Marie,LARA,J,F,6,3X405224,HR,2015-04-27,,HR,Human resourses
+Linda,MAY,,F,2,49215,HR,2015-04-13,,HR,Human resourses
+Gregory,NELSON,W,M,3,84544,HR,2015-03-27,,HR,Human resourses
+Julia,DAWSON,W,F,1,30851,HR,2015-03-20,,HR,Human resourses
+Kenneth,CROSS,J,M,4,106321,HR,2015-01-11,,HR,Human resourses
+Joe,VALENCIA,W,M,7,3X530191,HR,2014-10-23,,HR,Human resourses
+Natalie,PAYNE,,F,5,126359,HR,2014-09-03,,HR,Human resourses
+Susan,NEWMAN,,F,5,115156,HR,2014-06-04,,HR,Human resourses
+Kathryn,WOLFE,,F,5,125348,HR,2014-05-31,,HR,Human resourses
+Amber,ERICKSON,G,F,7,3X540223,HR,2013-10-06,,HR,Human resourses
+Keith,BEIL,,M,4,96973,HR,2013-06-14,,HR,Human resourses
+Stephanie,CHAMBERS,G,F,5,131746,HR,2013-03-27,,HR,Human resourses
+Douglas,DIAZ,,M,7,3X592051,HR,2012-11-09,,HR,Human resourses
+Sharon,HERRERA,G,F,7,3X563477,HR,2012-06-27,,HR,Human resourses
+Sharon,LAMBERT,,F,6,3X492267,HR,2012-03-17,,HR,Human resourses
+Adam,HUANG,W,M,4,111939,HR,2012-03-07,,HR,Human resourses
+Peter,SHEPHERD,,M,5,130749,HR,2012-03-02,,HR,Human resourses
+Jane,HAWKINS,F,F,5,122661,HR,2011-11-07,,HR,Human resourses
+John,OSBORNE,,M,5,141543,HR,2011-08-03,,HR,Human resourses
+Brenda,NEAL,,F,7,3X678886,HR,2011-01-21,,HR,Human resourses
+Mark,ANDRADE,F,M,4,102529,HR,2010-09-26,,HR,Human resourses
+Anthony,HUDSON,P,M,5,129905,HR,2010-08-16,,HR,Human resourses
+Samuel,VALDEZ,,M,6,3X426455,HR,2010-08-12,,HR,Human resourses
+Brian,HOFFMAN,,M,7,3X604253,HR,2010-08-09,,HR,Human resourses
+Melissa,MORENO,,F,5,111619,HR,2010-05-29,,HR,Human resourses
+Joseph,DAVENPORT,,M,4,101870,HR,2010-02-25,,HR,Human resourses
+William,ROBERSON,W,M,7,3X660587,HR,2009-02-05,,HR,Human resourses
+Pamela,LEONARD,,F,6,3X491416,HR,2008-08-21,,HR,Human resourses
+Albert,MCCOY,G,M,6,3X421169,HR,2007-10-27,,HR,Human resourses
+Sophia,GRANT,A,F,6,3X487173,HR,2007-10-26,,HR,Human resourses
+Alexander,BLAKE,,M,7,3X532466,HR,2007-10-25,,HR,Human resourses
+Bobby,PARSONS,F,M,7,3X569789,HR,2007-05-28,,HR,Human resourses
+Keith,ACEVEDO,A,M,6,3X406173,HR,2007-05-06,,HR,Human resourses
+George,BERRY,,M,6,3X545810,HR,2007-03-05,,HR,Human resourses
+Benjamin,STOKES,,M,6,3X538336,HR,2007-02-16,,HR,Human resourses
+Gary,LAWRENCE,F,M,7,3X613573,HR,2006-12-02,,HR,Human resourses
+Bobby,LUNA,F,M,7,3X599778,HR,2006-02-10,,HR,Human resourses
+Patrick,BURKE,A,M,6,3X401691,HR,2005-10-17,,HR,Human resourses
+Kelly,BECKER,A,F,6,3X409069,HR,2005-03-06,,HR,Human resourses
+Charles,ELLIOTT,P,M,6,3X418822,HR,2005-02-26,,HR,Human resourses
+Pamela,CASTRO,,F,6,3X480122,HR,2005-02-15,,HR,Human resourses
+Peter,PHELPS,G,M,7,3X555035,HR,2004-10-25,,HR,Human resourses
+John,WILCOX,F,M,6,3X412642,HR,2004-08-05,,HR,Human resourses
+Jonathan,BRUCE,,M,6,3X409140,HR,2003-04-18,,HR,Human resourses
+Theresa,LOVE,J,F,6,3X412575,HR,2003-01-21,,HR,Human resourses
+Jerry,ROBERTS,A,M,6,3X421277,HR,2002-11-15,,HR,Human resourses
+Timothy,CLARK,,M,1,39234,FIN,2018-11-20,,FIN,Finance
+Jacob,NORTON,W,M,1,39246,FIN,2018-11-18,,FIN,Finance
+Tyler,GOODMAN,P,M,3,93310,FIN,2018-06-19,,FIN,Finance
+Jerry,MORRISON,,M,3,102594,FIN,2018-05-02,,FIN,Finance
+Bradley,HARRINGTON,A,M,3,85425,FIN,2018-04-11,,FIN,Finance
+Lawrence,SHAH,P,M,2,67144,FIN,2017-12-23,,FIN,Finance
+Billy,FARMER,W,M,4,111782,FIN,2017-12-11,,FIN,Finance
+Ryan,VELAZQUEZ,F,M,1,24222,FIN,2017-11-03,,FIN,Finance
+Danielle,STEPHENS,,F,4,76809,FIN,2017-09-16,,FIN,Finance
+Billy,BURTON,G,M,2,50776,FIN,2017-08-29,,FIN,Finance
+Walter,SHAFFER,J,M,4,119503,FIN,2017-07-07,,FIN,Finance
+John,JOHNSON,,M,4,107483,FIN,2017-06-02,,FIN,Finance
+Debra,NORRIS,A,F,1,27457,FIN,2017-02-27,,FIN,Finance
+Benjamin,NUNEZ,G,M,4,90399,FIN,2017-01-27,,FIN,Finance
+Daniel,RAMSEY,G,M,4,124056,FIN,2016-12-21,,FIN,Finance
+Bradley,ZUNIGA,,M,2,48491,FIN,2016-12-20,,FIN,Finance
+Austin,WONG,W,M,4,104977,FIN,2016-12-12,,FIN,Finance
+Aaron,PATRICK,J,M,1,26931,FIN,2016-11-28,,FIN,Finance
+Eric,WILKINSON,P,M,4,99709,FIN,2016-10-29,,FIN,Finance
+Lori,VELASQUEZ,J,F,4,93364,FIN,2016-10-28,,FIN,Finance
+Samuel,VILLA,W,M,4,101211,FIN,2016-10-20,,FIN,Finance
+George,QUINN,G,M,5,143094,FIN,2016-10-09,,FIN,Finance
+Bryan,GALLAGHER,,M,1,29624,FIN,2016-10-08,,FIN,Finance
+Justin,HARMON,F,M,2,52082,FIN,2016-10-06,,FIN,Finance
+Shirley,AGUILAR,J,F,3,79150,FIN,2016-08-09,,FIN,Finance
+Rebecca,CALDWELL,,F,3,66659,FIN,2016-08-08,,FIN,Finance
+Andrew,JACKSON,,M,4,95296,FIN,2016-07-27,,FIN,Finance
+Samuel,BURGESS,,M,4,104032,FIN,2016-05-28,,FIN,Finance
+Henry,DALTON,,M,5,129990,FIN,2016-04-26,,FIN,Finance
+Joshua,RANDALL,G,M,3,96437,FIN,2016-04-25,,FIN,Finance
+Terry,COOPER,,M,2,50370,FIN,2016-04-11,,FIN,Finance
+Jack,CHARLES,P,M,1,25415,FIN,2016-04-11,,FIN,Finance
+Scott,MCGEE,,M,2,58053,FIN,2016-03-01,,FIN,Finance
+Sean,HOWELL,A,M,2,43914,FIN,2016-01-17,,FIN,Finance
+Harold,TREVINO,W,M,3,75267,FIN,2016-01-02,,FIN,Finance
+Stephen,GILL,P,M,1,39187,FIN,2015-12-26,,FIN,Finance
+Janet,WALTERS,A,F,2,59354,FIN,2015-12-13,,FIN,Finance
+Helen,TRAN,,F,5,125767,FIN,2015-10-30,,FIN,Finance
+Harold,BISHOP,,M,6,3X402262,FIN,2015-10-17,,FIN,Finance
+Victoria,VAUGHN,,F,2,46337,FIN,2015-08-08,,FIN,Finance
+Donald,PAUL,A,M,2,65796,FIN,2015-06-22,,FIN,Finance
+Raymond,HALL,,M,5,137470,FIN,2015-05-30,,FIN,Finance
+Michael,CHANDLER,P,M,2,61921,FIN,2015-05-19,,FIN,Finance
+Dorothy,NAVARRO,W,F,1,23523,FIN,2015-03-03,,FIN,Finance
+Gregory,OWEN,J,M,1,30587,FIN,2015-02-23,,FIN,Finance
+Cheryl,MASON,,F,2,50090,FIN,2015-02-04,,FIN,Finance
+Donald,ANDERSON,,M,1,25074,FIN,2014-11-29,,FIN,Finance
+Jeffrey,CONTRERAS,,M,6,3X413342,FIN,2014-11-28,,FIN,Finance
+Jonathan,SCOTT,W,M,3,79974,FIN,2014-11-27,,FIN,Finance
+Ann,HOLMES,,F,2,44843,FIN,2014-11-27,,FIN,Finance
+Lisa,JOSEPH,J,F,3,68836,FIN,2014-11-23,,FIN,Finance
+John,LIN,,M,7,3X502785,FIN,2014-11-04,,FIN,Finance
+Gary,BOONE,G,M,4,108661,FIN,2014-10-21,,FIN,Finance
+Randy,CASTILLO,P,M,4,106662,FIN,2013-12-25,,FIN,Finance
+Arthur,DEAN,,M,4,116742,FIN,2013-10-14,,FIN,Finance
+Lauren,GORDON,,F,5,127502,FIN,2013-07-26,,FIN,Finance
+Heather,MCDANIEL,,F,5,123757,FIN,2013-03-20,,FIN,Finance
+Sarah,HENDERSON,A,F,4,100661,FIN,2013-03-16,,FIN,Finance
+Joan,DELEON,G,F,5,129655,FIN,2013-02-17,,FIN,Finance
+Joyce,BURNS,F,F,4,90247,FIN,2013-01-17,,FIN,Finance
+Gabriel,MARQUEZ,G,M,5,126834,FIN,2012-12-12,,FIN,Finance
+Brandon,ROY,W,M,4,96762,FIN,2012-11-22,,FIN,Finance
+Katherine,HARRISON,A,F,6,3X415946,FIN,2012-10-26,,FIN,Finance
+Karen,CORTEZ,A,F,5,139572,FIN,2012-07-29,,FIN,Finance
+Catherine,SCHWARTZ,,F,7,3X638098,FIN,2012-06-27,,FIN,Finance
+Abigail,SOTO,F,F,5,126690,FIN,2012-06-02,,FIN,Finance
+Ronald,KRAMER,G,M,5,139513,FIN,2012-05-21,,FIN,Finance
+Janice,ZIMMERMAN,,F,5,125626,FIN,2012-03-02,,FIN,Finance
+Rebecca,HAYES,,F,4,86128,FIN,2011-06-02,,FIN,Finance
+Rose,SALINAS,,F,7,3X550391,FIN,2011-02-11,,FIN,Finance
+Louis,SANDERS,,M,4,97165,FIN,2011-02-08,,FIN,Finance
+Justin,VELEZ,G,M,4,108965,FIN,2010-06-26,,FIN,Finance
+Margaret,FISHER,P,F,6,3X482113,FIN,2010-05-28,,FIN,Finance
+Jonathan,HOGAN,,M,4,107359,FIN,2010-05-13,,FIN,Finance
+Anna,POWERS,,F,7,3X549940,FIN,2010-04-10,,FIN,Finance
+Bryan,GARRETT,F,M,6,3X418319,FIN,2010-02-16,,FIN,Finance
+Rachel,VARGAS,W,F,7,3X547430,FIN,2009-12-21,,FIN,Finance
+Walter,SINGH,G,M,7,3X543437,FIN,2009-04-02,,FIN,Finance
+Harold,HINES,P,M,7,3X519768,FIN,2009-02-25,,FIN,Finance
+Emily,MOLINA,W,F,6,3X410318,FIN,2008-10-06,,FIN,Finance
+Frank,DOYLE,G,M,7,3X649176,FIN,2008-08-11,,FIN,Finance
+Heather,WEBB,J,F,7,3X630856,FIN,2005-03-10,,FIN,Finance
+Gregory,HODGE,,M,6,3X413133,FIN,2005-02-10,,FIN,Finance
+Brenda,FORD,J,F,6,3X407227,FIN,2005-01-27,,FIN,Finance
+George,PEREZ,G,M,6,3X408740,FIN,2004-12-25,,FIN,Finance
+Matthew,ARMSTRONG,,M,7,3X544840,FIN,2004-01-19,,FIN,Finance
+Frank,GREENE,,M,7,3X581183,FIN,2003-12-16,,FIN,Finance
+Johnny,FOSTER,A,M,7,3X517005,FIN,2003-12-05,,FIN,Finance
+Raymond,LANG,F,M,6,3X417648,FIN,2003-04-09,,FIN,Finance
+Denise,DANIELS,,F,7,3X550741,FIN,2002-10-13,,FIN,Finance
+Keith,COOK,W,M,2,50170,COMP,2018-12-15,,COMP,Legal and Compliance
+Charles,MASSEY,,M,2,47466,COMP,2018-08-25,,COMP,Legal and Compliance
+Susan,COLEMAN,J,F,1,35784,COMP,2018-08-07,,COMP,Legal and Compliance
+Kathleen,ELLIS,,F,3,75712,COMP,2018-05-28,,COMP,Legal and Compliance
+Zachary,ALI,,M,1,30794,COMP,2018-04-07,,COMP,Legal and Compliance
+Maria,COHEN,A,F,3,78284,COMP,2018-03-14,,COMP,Legal and Compliance
+James,SMITH,A,M,1,38136,COMP,2018-01-17,,COMP,Legal and Compliance
+Christopher,LIU,A,M,1,35202,COMP,2018-01-10,,COMP,Legal and Compliance
+Deborah,BATES,,F,4,99018,COMP,2017-12-05,,COMP,Legal and Compliance
+Marilyn,SOLIS,G,F,3,81557,COMP,2017-10-24,,COMP,Legal and Compliance
+Steven,MOORE,J,M,1,38276,COMP,2017-10-16,,COMP,Legal and Compliance
+Jennifer,BREWER,J,F,5,121228,COMP,2017-08-23,,COMP,Legal and Compliance
+Teresa,CABRERA,J,F,1,22643,COMP,2017-07-30,,COMP,Legal and Compliance
+Carl,MCKENZIE,,M,3,88143,COMP,2017-07-12,,COMP,Legal and Compliance
+Eugene,WATERS,J,M,1,22613,COMP,2017-06-06,,COMP,Legal and Compliance
+Margaret,SCHNEIDER,F,F,2,53121,COMP,2017-03-24,,COMP,Legal and Compliance
+Stephanie,COLE,A,F,1,33005,COMP,2017-02-22,,COMP,Legal and Compliance
+Kevin,MOSS,J,M,3,92789,COMP,2017-01-20,,COMP,Legal and Compliance
+Eric,GUERRERO,,M,2,50288,COMP,2017-01-09,,COMP,Legal and Compliance
+Thomas,KNIGHT,,M,4,123643,COMP,2016-12-28,,COMP,Legal and Compliance
+James,GLOVER,,M,3,95314,COMP,2016-12-06,,COMP,Legal and Compliance
+Edward,MATHIS,,M,2,47418,COMP,2016-11-20,,COMP,Legal and Compliance
+Janet,CHEN,A,F,3,88444,COMP,2016-10-19,,COMP,Legal and Compliance
+Daniel,OROZCO,,M,2,52524,COMP,2016-10-19,,COMP,Legal and Compliance
+Zachary,DICKERSON,F,M,2,64052,COMP,2016-10-19,,COMP,Legal and Compliance
+Joe,NICHOLSON,,M,2,62445,COMP,2016-10-13,,COMP,Legal and Compliance
+Walter,HEATH,J,M,1,32482,COMP,2016-10-12,,COMP,Legal and Compliance
+Edward,HARRIS,P,M,4,94212,COMP,2016-10-10,,COMP,Legal and Compliance
+Frances,HAIL,,F,2,47564,COMP,2016-08-17,,COMP,Legal and Compliance
+Teresa,BOYD,,F,3,88734,COMP,2016-07-22,,COMP,Legal and Compliance
+Christopher,BOWERS,,M,1,27667,COMP,2016-06-16,,COMP,Legal and Compliance
+Thomas,COPELAND,G,M,3,76959,COMP,2016-06-15,,COMP,Legal and Compliance
+Jack,SANTIAGO,,M,2,47049,COMP,2016-04-01,,COMP,Legal and Compliance
+Kyle,FOLEY,G,M,1,39780,COMP,2016-03-23,,COMP,Legal and Compliance
+Joe,HUFFMAN,G,M,1,33030,COMP,2016-03-22,,COMP,Legal and Compliance
+Patrick,WALTON,,M,5,122498,COMP,2016-02-29,,COMP,Legal and Compliance
+Jordan,MORA,,M,2,46832,COMP,2015-12-30,,COMP,Legal and Compliance
+Lori,KELLEY,,F,4,99404,COMP,2015-12-03,,COMP,Legal and Compliance
+Samantha,FLEMING,F,F,3,80905,COMP,2015-12-02,,COMP,Legal and Compliance
+Johnny,FOWLER,,M,3,91401,COMP,2015-09-26,,COMP,Legal and Compliance
+Mary,POWELL,W,F,7,3X568499,COMP,2015-09-18,,COMP,Legal and Compliance
+Carl,MONTGOMERY,G,M,2,58887,COMP,2015-09-14,,COMP,Legal and Compliance
+Adam,PARKER,P,M,6,3X424604,COMP,2015-09-11,,COMP,Legal and Compliance
+Alice,WAGNER,F,F,3,72676,COMP,2015-08-10,,COMP,Legal and Compliance
+Olivia,SILVA,,F,2,44393,COMP,2015-07-31,,COMP,Legal and Compliance
+Andrea,MUNOZ,,F,2,41244,COMP,2015-06-21,,COMP,Legal and Compliance
+Charles,MARTINEZ,J,M,1,43026,COMP,2015-05-30,,COMP,Legal and Compliance
+Kevin,KIRK,W,M,2,59707,COMP,2015-05-19,,COMP,Legal and Compliance
+Dylan,VALENZUELA,F,M,2,58343,COMP,2015-05-17,,COMP,Legal and Compliance
+Amy,AYALA,F,F,4,94497,COMP,2015-05-05,,COMP,Legal and Compliance
+Benjamin,ADAMS,,M,2,67712,COMP,2015-03-21,,COMP,Legal and Compliance
+Doris,MCKINNEY,P,F,4,106205,COMP,2015-03-06,,COMP,Legal and Compliance
+Vincent,BOWMAN,,M,5,131300,COMP,2015-02-20,,COMP,Legal and Compliance
+Nathan,EDWARDS,G,M,4,103140,COMP,2015-02-07,,COMP,Legal and Compliance
+Dennis,DRAKE,G,M,3,76459,COMP,2015-01-07,,COMP,Legal and Compliance
+Randy,CAMACHO,P,M,1,39390,COMP,2015-01-05,,COMP,Legal and Compliance
+Harold,ATKINS,P,M,5,115352,COMP,2014-09-12,,COMP,Legal and Compliance
+Roger,ROGERS,,M,4,102289,COMP,2014-07-20,,COMP,Legal and Compliance
+Adam,LAWSON,P,M,4,109660,COMP,2014-05-23,,COMP,Legal and Compliance
+Christopher,LAM,W,M,5,136767,COMP,2014-01-07,,COMP,Legal and Compliance
+Dennis,MALDONADO,,M,6,3X415812,COMP,2013-12-09,,COMP,Legal and Compliance
+Robert,WILLIAMS,W,M,7,3X429110,COMP,2013-11-25,,COMP,Legal and Compliance
+Roy,UNDERWOOD,W,M,5,126675,COMP,2013-09-14,,COMP,Legal and Compliance
+Lauren,TERRY,G,F,4,90896,COMP,2013-08-07,,COMP,Legal and Compliance
+Bobby,ROSS,,M,5,128444,COMP,2013-06-15,,COMP,Legal and Compliance
+Patrick,BROCK,A,M,7,3X591586,COMP,2013-02-07,,COMP,Legal and Compliance
+Robert,VAZQUEZ,G,M,4,113424,COMP,2012-11-06,,COMP,Legal and Compliance
+Gerald,COCHRAN,G,M,6,3X424606,COMP,2012-11-01,,COMP,Legal and Compliance
+Noah,HANSON,F,M,5,134504,COMP,2012-09-20,,COMP,Legal and Compliance
+Mary,DAVIDSON,,F,5,119551,COMP,2012-02-11,,COMP,Legal and Compliance
+Roger,CANNON,F,M,7,3X540583,COMP,2011-10-22,,COMP,Legal and Compliance
+Benjamin,GARNER,W,M,4,114521,COMP,2011-09-17,,COMP,Legal and Compliance
+Bryan,RANGEL,J,M,6,3X537127,COMP,2011-09-02,,COMP,Legal and Compliance
+Zachary,MONTOYA,G,M,4,114227,COMP,2011-07-01,,COMP,Legal and Compliance
+Alexis,DUNN,G,F,4,115802,COMP,2011-03-11,,COMP,Legal and Compliance
+Charles,ROBBINS,F,M,4,118341,COMP,2010-12-13,,COMP,Legal and Compliance
+Denise,CERVANTES,G,F,5,120324,COMP,2010-09-25,,COMP,Legal and Compliance
+Melissa,BARNETT,W,F,5,118974,COMP,2010-09-07,,COMP,Legal and Compliance
+Jacqueline,HICKS,,F,5,132066,COMP,2010-05-08,,COMP,Legal and Compliance
+Aaron,CARLSON,P,M,5,122521,COMP,2010-05-05,,COMP,Legal and Compliance
+Jerry,SOSA,F,M,7,3X511336,COMP,2010-04-08,,COMP,Legal and Compliance
+Austin,WOLF,,M,4,94251,COMP,2010-02-24,,COMP,Legal and Compliance
+Vincent,PERSON,G,M,5,131399,COMP,2009-11-09,,COMP,Legal and Compliance
+Christian,PETERSEN,F,M,6,3X535832,COMP,2007-10-02,,COMP,Legal and Compliance
+Joyce,STEELE,,F,7,3X669125,COMP,2007-08-22,,COMP,Legal and Compliance
+Justin,ESTRADA,J,M,7,3X637103,COMP,2007-02-12,,COMP,Legal and Compliance
+Willie,HAMPTON,,M,7,3X656966,COMP,2006-07-09,,COMP,Legal and Compliance
+Justin,NGUYEN,G,M,7,3X675529,COMP,2006-02-02,,COMP,Legal and Compliance
+Sophia,DANIEL,G,F,6,3X406868,COMP,2005-04-28,,COMP,Legal and Compliance
+Christine,MCDONALD,W,F,6,3X410772,COMP,2005-01-05,,COMP,Legal and Compliance
+Patrick,RIVERA,,M,7,3X640812,COMP,2004-01-21,,COMP,Legal and Compliance
+Kathryn,BLACK,A,F,7,3X581046,COMP,2003-05-13,,COMP,Legal and Compliance
+Carl,MULLINS,F,M,7,3X571124,COMP,2003-03-15,,COMP,Legal and Compliance
+Alexander,CAMPBELL,A,M,2,64408,ACC,2018-12-30,,ACC,Accounting
+Alexis,SIMON,W,F,2,56254,ACC,2018-11-26,,ACC,Accounting
+Eric,FLYNN,J,M,1,39392,ACC,2018-09-06,,ACC,Accounting
+Arthur,MORGAN,W,M,3,94040,ACC,2018-08-15,,ACC,Accounting
+Jack,GATES,,M,3,83095,ACC,2017-12-20,,ACC,Accounting
+Henry,GOODWIN,A,M,1,33148,ACC,2017-08-13,,ACC,Accounting
+Ashley,KELLER,P,F,5,100202,ACC,2017-08-10,,ACC,Accounting
+Nicholas,SANDOVAL,,M,2,54933,ACC,2017-07-19,,ACC,Accounting
+Ryan,WILLIS,,M,4,90350,ACC,2017-03-14,,ACC,Accounting
+Lawrence,LI,A,M,5,125253,ACC,2017-02-04,,ACC,Accounting
+Joe,REID,,M,4,97670,ACC,2017-01-20,,ACC,Accounting
+Jason,RODGERS,,M,1,26251,ACC,2016-12-29,,ACC,Accounting
+Gerald,GUTIERREZ,,M,2,58360,ACC,2016-12-22,,ACC,Accounting
+Edward,JOHNSTON,P,M,1,37588,ACC,2016-12-09,,ACC,Accounting
+Sara,STONE,,F,3,75406,ACC,2016-11-29,,ACC,Accounting
+Nancy,DOUGLAS,,F,1,26545,ACC,2016-10-13,,ACC,Accounting
+Steven,ANTHONY,F,M,4,91906,ACC,2016-10-12,,ACC,Accounting
+Ashley,PATTERSON,,F,2,58949,ACC,2016-07-04,,ACC,Accounting
+Scott,VILLANUEVA,W,M,4,113036,ACC,2016-06-23,,ACC,Accounting
+Carolyn,HENRY,J,F,1,38161,ACC,2016-05-24,,ACC,Accounting
+Marie,WARREN,,F,3,68500,ACC,2016-05-19,,ACC,Accounting
+Betty,BARRETT,A,F,3,75298,ACC,2016-03-31,,ACC,Accounting
+Thomas,TYLER,F,M,2,48083,ACC,2016-03-18,,ACC,Accounting
+Christina,HOLT,J,F,3,80558,ACC,2016-03-03,,ACC,Accounting
+Russell,WALSH,F,M,2,73281,ACC,2015-12-16,,ACC,Accounting
+Madison,FLETCHER,F,F,5,117566,ACC,2015-12-11,,ACC,Accounting
+Donald,CARROLL,A,M,4,91703,ACC,2015-12-10,,ACC,Accounting
+Michelle,REYNOLDS,F,F,3,67008,ACC,2015-11-29,,ACC,Accounting
+Aaron,PHILLIPS,P,M,6,3X419397,ACC,2015-11-01,,ACC,Accounting
+Amber,NICHOLS,G,F,1,34268,ACC,2015-09-16,,ACC,Accounting
+Sarah,CURTIS,F,F,1,37098,ACC,2015-08-24,,ACC,Accounting
+Abigail,CHANG,,F,6,3X412938,ACC,2015-08-24,,ACC,Accounting
+Ronald,RIVAS,,M,7,3X532237,ACC,2015-08-20,,ACC,Accounting
+Lisa,VASQUEZ,W,F,3,69372,ACC,2015-07-28,,ACC,Accounting
+Evelyn,HUNTER,,F,4,106025,ACC,2015-06-29,,ACC,Accounting
+Tyler,GOMEZ,,M,1,22036,ACC,2015-05-31,,ACC,Accounting
+Katherine,SUTTON,W,F,6,3X419317,ACC,2015-05-29,,ACC,Accounting
+Steven,ANDREWS,F,M,2,67515,ACC,2015-02-16,,ACC,Accounting
+Maria,FREEMAN,F,F,2,48789,ACC,2015-01-07,,ACC,Accounting
+Dylan,INGRAM,J,M,7,3X596020,ACC,2014-09-26,,ACC,Accounting
+Michael,HANSEN,A,M,4,110225,ACC,2014-04-26,,ACC,Accounting
+Albert,COX,F,M,5,132203,ACC,2013-12-04,,ACC,Accounting
+Wayne,GREER,,M,6,3X427638,ACC,2013-11-24,,ACC,Accounting
+Sara,MANN,A,F,5,111281,ACC,2013-06-12,,ACC,Accounting
+Cynthia,MIRANDA,F,F,7,3X566209,ACC,2013-05-10,,ACC,Accounting
+Richard,BOWEN,,M,4,116427,ACC,2013-02-24,,ACC,Accounting
+Christopher,CUNNINGHAM,G,M,6,3X403102,ACC,2013-01-11,,ACC,Accounting
+Paul,MONROE,F,M,7,3X559859,ACC,2012-10-28,,ACC,Accounting
+Matthew,SALAS,J,M,7,3X570439,ACC,2012-10-10,,ACC,Accounting
+Raymond,REESE,G,M,7,3X651031,ACC,2012-09-02,,ACC,Accounting
+Walter,TODD,G,M,5,125523,ACC,2012-06-23,,ACC,Accounting
+Nicholas,CHRISTENSEN,,M,4,112404,ACC,2012-05-26,,ACC,Accounting
+Peter,CRUZ,F,M,6,3X418518,ACC,2012-01-28,,ACC,Accounting
+Thomas,DENNIS,F,M,6,3X412931,ACC,2012-01-07,,ACC,Accounting
+Paul,RILEY,,M,4,114236,ACC,2012-01-01,,ACC,Accounting
+Alan,ROJAS,G,M,6,3X428445,ACC,2011-11-16,,ACC,Accounting
+Lawrence,RUBIO,,M,6,3X499553,ACC,2011-11-14,,ACC,Accounting
+Roger,HARVEY,W,M,4,110179,ACC,2011-09-20,,ACC,Accounting
+Anthony,CAMERON,,M,4,103988,ACC,2011-06-05,,ACC,Accounting
+Judy,RICE,G,F,5,116524,ACC,2011-03-11,,ACC,Accounting
+William,JONES,,M,4,96914,ACC,2011-01-16,,ACC,Accounting
+Timothy,SKINNER,A,M,7,3X640121,ACC,2010-11-02,,ACC,Accounting
+Alan,BRYAN,G,M,4,97783,ACC,2010-08-28,,ACC,Accounting
+Kenneth,HUYNH,W,M,4,129566,ACC,2010-03-08,,ACC,Accounting
+James,ARNOLD,,M,4,110029,ACC,2010-01-27,,ACC,Accounting
+Sean,BRIGGS,,M,7,3X570680,ACC,2009-05-09,,ACC,Accounting
+Daniel,HUFF,,M,7,3X507344,ACC,2009-02-20,,ACC,Accounting
+Jesse,LOZANO,G,M,7,3X537609,ACC,2008-07-20,,ACC,Accounting
+Eugene,LITTLE,P,M,6,3X429267,ACC,2007-05-01,,ACC,Accounting
+Jesse,KIM,P,M,7,3X592680,ACC,2007-04-30,,ACC,Accounting
+Tyler,SWEENEY,J,M,7,3X681240,ACC,2007-04-27,,ACC,Accounting
+Sandra,JORDAN,,F,6,3X499481,ACC,2006-11-27,,ACC,Accounting
+Peter,POTTER,J,M,6,3X424401,ACC,2006-09-05,,ACC,Accounting
+Adam,BARRON,G,M,7,3X666950,ACC,2005-04-29,,ACC,Accounting
+Natalie,BALDWIN,G,F,7,3X558595,ACC,2004-12-05,,ACC,Accounting
+Charles,SUAREZ,,M,7,3X655783,ACC,2004-04-11,,ACC,Accounting
+Roger,BENITEZ,F,M,7,3X662857,ACC,2003-11-29,,ACC,Accounting
+Janice,SALAZAR,,F,7,3X679195,ACC,2003-11-08,,ACC,Accounting
