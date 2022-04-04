@@ -1,0 +1,15 @@
+body{
+    background-color: blanchedalmond;
+}
+
+#task_form, #task_list{
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-top: 2rem;
+}
+/* #task_list{
+    text-align: center;
+} */
+.task_item{
+    background-color: aliceblue;
+}

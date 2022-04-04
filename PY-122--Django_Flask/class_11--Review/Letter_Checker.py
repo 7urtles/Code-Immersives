@@ -35,10 +35,8 @@ print(solution1('disassemble',lst1))
 
 
 def solution2(word,list1):
-    # unique list of letters
-    letters = set(word)
     # iterate unique letters
-    for i in letters:
+    for i in set(word):
         #compare counts of both, if starting word has more of a letter than the list, FALSE
         if word.count(i) > list1.count(i):
             return False
